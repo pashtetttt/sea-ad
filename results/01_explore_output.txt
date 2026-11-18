@@ -1,0 +1,961 @@
+
+######## 0. ЧТО ЛЕЖИТ ВНУТРИ ФАЙЛА (верхний уровень) ########
+      group                                                      name       otype
+0         /                                                         X   H5I_GROUP
+1        /X                                                      data H5I_DATASET
+2        /X                                                   indices H5I_DATASET
+3        /X                                                    indptr H5I_DATASET
+4         /                                                    layers   H5I_GROUP
+5   /layers                                                      UMIs   H5I_GROUP
+6         /                                                       obs   H5I_GROUP
+7      /obs                                             APOE Genotype   H5I_GROUP
+8      /obs                        ATAC_Confidently_mapped_read_pairs H5I_DATASET
+9      /obs                          ATAC_Fraction_of_genome_in_peaks H5I_DATASET
+10     /obs          ATAC_Fraction_of_high_quality_fragments_in_cells H5I_DATASET
+11     /obs   ATAC_Fraction_of_high_quality_fragments_overlapping_TSS H5I_DATASET
+12     /obs ATAC_Fraction_of_high_quality_fragments_overlapping_peaks H5I_DATASET
+13     /obs   ATAC_Fraction_of_transposition_events_in_peaks_in_cells H5I_DATASET
+14     /obs                         ATAC_Mean_raw_read_pairs_per_cell H5I_DATASET
+15     /obs               ATAC_Median_high_quality_fragments_per_cell H5I_DATASET
+16     /obs                               ATAC_Non-nuclear_read_pairs H5I_DATASET
+17     /obs                                      ATAC_Number_of_peaks H5I_DATASET
+18     /obs                                   ATAC_Percent_duplicates H5I_DATASET
+19     /obs                                 ATAC_Q30_bases_in_barcode H5I_DATASET
+20     /obs                                  ATAC_Q30_bases_in_read_1 H5I_DATASET
+21     /obs                                  ATAC_Q30_bases_in_read_2 H5I_DATASET
+22     /obs                         ATAC_Q30_bases_in_sample_index_i1 H5I_DATASET
+23     /obs                                 ATAC_Sequenced_read_pairs H5I_DATASET
+24     /obs                                 ATAC_TSS_enrichment_score H5I_DATASET
+25     /obs                                  ATAC_Unmapped_read_pairs H5I_DATASET
+26     /obs                                       ATAC_Valid_barcodes H5I_DATASET
+27     /obs                                              Age at Death H5I_DATASET
+28     /obs                                        Arteriolosclerosis   H5I_GROUP
+29     /obs                                           Atherosclerosis   H5I_GROUP
+30     /obs                                                     Braak   H5I_GROUP
+31     /obs                                              Brain Region   H5I_GROUP
+32     /obs                                                  Brain pH H5I_DATASET
+33     /obs                                               CERAD score   H5I_GROUP
+34     /obs                                                     Class   H5I_GROUP
+35     /obs                                          Cognitive Status   H5I_GROUP
+36     /obs                                                  Donor ID   H5I_GROUP
+37     /obs                                             Doublet score H5I_DATASET
+38     /obs                               Fraction mitochondrial UMIs H5I_DATASET
+39     /obs                                        Fresh Brain Weight   H5I_GROUP
+40     /obs                             GEX_Estimated_number_of_cells H5I_DATASET
+41     /obs             GEX_Fraction_of_transcriptomic_reads_in_cells H5I_DATASET
+42     /obs                               GEX_Mean_raw_reads_per_cell H5I_DATASET
+43     /obs                            GEX_Median_UMI_counts_per_cell H5I_DATASET
+44     /obs                                 GEX_Median_genes_per_cell H5I_DATASET
+45     /obs                                    GEX_Percent_duplicates H5I_DATASET
+46     /obs                                      GEX_Q30_bases_in_UMI H5I_DATASET
+47     /obs                                  GEX_Q30_bases_in_barcode H5I_DATASET
+48     /obs                                   GEX_Q30_bases_in_read_2 H5I_DATASET
+49     /obs                          GEX_Q30_bases_in_sample_index_i1 H5I_DATASET
+50     /obs                          GEX_Q30_bases_in_sample_index_i2 H5I_DATASET
+51     /obs                        GEX_Reads_mapped_antisense_to_gene H5I_DATASET
+52     /obs            GEX_Reads_mapped_confidently_to_exonic_regions H5I_DATASET
+53     /obs                    GEX_Reads_mapped_confidently_to_genome H5I_DATASET
+54     /obs        GEX_Reads_mapped_confidently_to_intergenic_regions H5I_DATASET
+55     /obs          GEX_Reads_mapped_confidently_to_intronic_regions H5I_DATASET
+56     /obs             GEX_Reads_mapped_confidently_to_transcriptome H5I_DATASET
+57     /obs                                GEX_Reads_mapped_to_genome H5I_DATASET
+58     /obs                                        GEX_Reads_with_TSO H5I_DATASET
+59     /obs                                  GEX_Sequenced_read_pairs H5I_DATASET
+60     /obs                                  GEX_Total_genes_detected H5I_DATASET
+61     /obs                                            GEX_Valid_UMIs H5I_DATASET
+62     /obs                                        GEX_Valid_barcodes H5I_DATASET
+63     /obs                                       GEX_number_of_reads H5I_DATASET
+64     /obs                                 GEX_sequencing_saturation H5I_DATASET
+65     /obs                                                    Gender   H5I_GROUP
+66     /obs                                            Genes detected H5I_DATASET
+67     /obs                                                    Genome   H5I_GROUP
+68     /obs                                 Highest Lewy Body Disease   H5I_GROUP
+69     /obs                                Highest level of education   H5I_GROUP
+70     /obs                                                  Hispanic   H5I_GROUP
+71     /obs                         Interval from last CASI in months H5I_DATASET
+72     /obs                         Interval from last MMSE in months H5I_DATASET
+73     /obs                         Interval from last MOCA in months H5I_DATASET
+74     /obs                                                      LATE   H5I_GROUP
+75     /obs                                           Last CASI Score H5I_DATASET
+76     /obs                                           Last MMSE Score H5I_DATASET
+77     /obs                                           Last MOCA Score H5I_DATASET
+78     /obs                        Multiome_Feature_linkages_detected H5I_DATASET
+79     /obs                                     Multiome_Linked_genes H5I_DATASET
+80     /obs                                     Multiome_Linked_peaks H5I_DATASET
+81     /obs                            NeuN positive fraction on FANS H5I_DATASET
+82     /obs                                    Neurotypical reference H5I_DATASET
+83     /obs                                            Number of UMIs H5I_DATASET
+84     /obs                                    Number of mapped reads H5I_DATASET
+85     /obs                               Number of multimapped reads H5I_DATASET
+86     /obs                                           Number of reads H5I_DATASET
+87     /obs                                  Number of unmapped reads H5I_DATASET
+88     /obs                                                  Organism   H5I_GROUP
+89     /obs                       Overall AD neuropathological Change   H5I_GROUP
+90     /obs                                         Overall CAA Score   H5I_GROUP
+91     /obs                                                       PMI H5I_DATASET
+92     /obs                                        Primary Study Name   H5I_GROUP
+93     /obs                                                       RIN H5I_DATASET
+94     /obs                              Race (choice=American Indian   H5I_GROUP
+95     /obs                                       Race (choice=Asian)   H5I_GROUP
+96     /obs                                        Race (choice=Black   H5I_GROUP
+97     /obs         Race (choice=Native Hawaiian or Pacific Islander)   H5I_GROUP
+98     /obs                                       Race (choice=Other)   H5I_GROUP
+99     /obs                       Race (choice=Unknown or unreported)   H5I_GROUP
+100    /obs                                       Race (choice=White)   H5I_GROUP
+101    /obs                                      Secondary Study Name   H5I_GROUP
+102    /obs                                   Severely Affected Donor   H5I_GROUP
+103    /obs                                                       Sex   H5I_GROUP
+104    /obs                                                  Subclass   H5I_GROUP
+105    /obs                                                 Supertype   H5I_GROUP
+106    /obs                                                      Thal   H5I_GROUP
+107    /obs                Total Microinfarcts (not observed grossly) H5I_DATASET
+108    /obs                 Total microinfarcts in screening sections H5I_DATASET
+109    /obs                                          Used in analysis   H5I_GROUP
+110    /obs                                        Years of education H5I_DATASET
+111    /obs                                                 alignment   H5I_GROUP
+112    /obs                                     amplified_quantity_ng H5I_DATASET
+113    /obs                                                     ar_id   H5I_GROUP
+114    /obs                                               avg_size_bp H5I_DATASET
+115    /obs                                         batch_vendor_name   H5I_GROUP
+116    /obs                                                        bc   H5I_GROUP
+117    /obs                                            cell_prep_type   H5I_GROUP
+118    /obs                                        exp_component_name H5I_DATASET
+119    /obs                                 exp_component_vendor_name   H5I_GROUP
+120    /obs                                         expc_cell_capture H5I_DATASET
+121    /obs                               experiment_component_failed H5I_DATASET
+122    /obs                                      facs_population_plan   H5I_GROUP
+123    /obs                                          library_input_ng H5I_DATASET
+124    /obs                                              library_prep   H5I_GROUP
+125    /obs                                    library_prep_pass_fail   H5I_GROUP
+126    /obs                                                 load_name   H5I_GROUP
+127    /obs                                                    method   H5I_GROUP
+128    /obs                                                pcr_cycles H5I_DATASET
+129    /obs                            percent_cdna_longer_than_400bp H5I_DATASET
+130    /obs                                       quantification_fmol H5I_DATASET
+131    /obs                                                  r1_index   H5I_GROUP
+132    /obs                                         rna_amplification   H5I_GROUP
+133    /obs                               rna_amplification_pass_fail   H5I_GROUP
+134    /obs                                                 sample_id H5I_DATASET
+135    /obs                                               sample_name   H5I_GROUP
+136    /obs                                     sample_quantity_count H5I_DATASET
+137    /obs                                        specify other race   H5I_GROUP
+138       /                                                      obsm   H5I_GROUP
+139   /obsm                                                    X_scVI H5I_DATASET
+140   /obsm                                                    X_umap H5I_DATASET
+141       /                                                      obsp   H5I_GROUP
+142   /obsp                                            connectivities   H5I_GROUP
+143   /obsp                                                 distances   H5I_GROUP
+144       /                                                       uns   H5I_GROUP
+145    /uns                                       Brain Region_colors H5I_DATASET
+146    /uns                                       Great Apes Metadata H5I_DATASET
+147    /uns                                           Subclass_colors H5I_DATASET
+148    /uns                                          Supertype_colors H5I_DATASET
+149    /uns                                      UW Clinical Metadata H5I_DATASET
+150    /uns                                           X_normalization H5I_DATASET
+151    /uns                                           batch_condition H5I_DATASET
+152    /uns                                         default_embedding H5I_DATASET
+153    /uns                                                     log1p   H5I_GROUP
+154    /uns                                                 neighbors   H5I_GROUP
+155    /uns                                                     title H5I_DATASET
+156    /uns                                                      umap   H5I_GROUP
+157       /                                                       var   H5I_GROUP
+158    /var                                             feature_types   H5I_GROUP
+159    /var                                                  gene_ids H5I_DATASET
+160    /var                                                    genome   H5I_GROUP
+161    /var                                                     index H5I_DATASET
+162       /                                                      varm   H5I_GROUP
+163       /                                                      varp   H5I_GROUP
+
+######## 1. МЕТАДАННЫЕ ЯДЕР (obs) И ГЕНОВ (var) ########
+Ядер: 240651 | генов: 36601 
+
+Первые названия генов:
+ [1] "MIR1302-2HG" "FAM138A"     "OR4F5"       "AL627309.1"  "AL627309.3"  "AL627309.2" 
+ [7] "AL627309.5"  "AL627309.4"  "AP006222.2"  "AL732372.1" 
+
+Столбцы аннотации генов:
+[1] "feature_types" "gene_ids"      "genome"       
+
+Столбцы метаданных ядер:
+  [1] "APOE Genotype"                                            
+  [2] "ATAC_Confidently_mapped_read_pairs"                       
+  [3] "ATAC_Fraction_of_genome_in_peaks"                         
+  [4] "ATAC_Fraction_of_high_quality_fragments_in_cells"         
+  [5] "ATAC_Fraction_of_high_quality_fragments_overlapping_TSS"  
+  [6] "ATAC_Fraction_of_high_quality_fragments_overlapping_peaks"
+  [7] "ATAC_Fraction_of_transposition_events_in_peaks_in_cells"  
+  [8] "ATAC_Mean_raw_read_pairs_per_cell"                        
+  [9] "ATAC_Median_high_quality_fragments_per_cell"              
+ [10] "ATAC_Non-nuclear_read_pairs"                              
+ [11] "ATAC_Number_of_peaks"                                     
+ [12] "ATAC_Percent_duplicates"                                  
+ [13] "ATAC_Q30_bases_in_barcode"                                
+ [14] "ATAC_Q30_bases_in_read_1"                                 
+ [15] "ATAC_Q30_bases_in_read_2"                                 
+ [16] "ATAC_Q30_bases_in_sample_index_i1"                        
+ [17] "ATAC_Sequenced_read_pairs"                                
+ [18] "ATAC_TSS_enrichment_score"                                
+ [19] "ATAC_Unmapped_read_pairs"                                 
+ [20] "ATAC_Valid_barcodes"                                      
+ [21] "Age at Death"                                             
+ [22] "Arteriolosclerosis"                                       
+ [23] "Atherosclerosis"                                          
+ [24] "Braak"                                                    
+ [25] "Brain Region"                                             
+ [26] "Brain pH"                                                 
+ [27] "CERAD score"                                              
+ [28] "Class"                                                    
+ [29] "Cognitive Status"                                         
+ [30] "Donor ID"                                                 
+ [31] "Doublet score"                                            
+ [32] "Fraction mitochondrial UMIs"                              
+ [33] "Fresh Brain Weight"                                       
+ [34] "GEX_Estimated_number_of_cells"                            
+ [35] "GEX_Fraction_of_transcriptomic_reads_in_cells"            
+ [36] "GEX_Mean_raw_reads_per_cell"                              
+ [37] "GEX_Median_UMI_counts_per_cell"                           
+ [38] "GEX_Median_genes_per_cell"                                
+ [39] "GEX_Percent_duplicates"                                   
+ [40] "GEX_Q30_bases_in_UMI"                                     
+ [41] "GEX_Q30_bases_in_barcode"                                 
+ [42] "GEX_Q30_bases_in_read_2"                                  
+ [43] "GEX_Q30_bases_in_sample_index_i1"                         
+ [44] "GEX_Q30_bases_in_sample_index_i2"                         
+ [45] "GEX_Reads_mapped_antisense_to_gene"                       
+ [46] "GEX_Reads_mapped_confidently_to_exonic_regions"           
+ [47] "GEX_Reads_mapped_confidently_to_genome"                   
+ [48] "GEX_Reads_mapped_confidently_to_intergenic_regions"       
+ [49] "GEX_Reads_mapped_confidently_to_intronic_regions"         
+ [50] "GEX_Reads_mapped_confidently_to_transcriptome"            
+ [51] "GEX_Reads_mapped_to_genome"                               
+ [52] "GEX_Reads_with_TSO"                                       
+ [53] "GEX_Sequenced_read_pairs"                                 
+ [54] "GEX_Total_genes_detected"                                 
+ [55] "GEX_Valid_UMIs"                                           
+ [56] "GEX_Valid_barcodes"                                       
+ [57] "GEX_number_of_reads"                                      
+ [58] "GEX_sequencing_saturation"                                
+ [59] "Gender"                                                   
+ [60] "Genes detected"                                           
+ [61] "Genome"                                                   
+ [62] "Highest Lewy Body Disease"                                
+ [63] "Highest level of education"                               
+ [64] "Interval from last CASI in months"                        
+ [65] "Interval from last MMSE in months"                        
+ [66] "Interval from last MOCA in months"                        
+ [67] "LATE"                                                     
+ [68] "Last CASI Score"                                          
+ [69] "Last MMSE Score"                                          
+ [70] "Last MOCA Score"                                          
+ [71] "Multiome_Feature_linkages_detected"                       
+ [72] "Multiome_Linked_genes"                                    
+ [73] "Multiome_Linked_peaks"                                    
+ [74] "NeuN positive fraction on FANS"                           
+ [75] "Neurotypical reference"                                   
+ [76] "Number of UMIs"                                           
+ [77] "Number of mapped reads"                                   
+ [78] "Number of multimapped reads"                              
+ [79] "Number of reads"                                          
+ [80] "Number of unmapped reads"                                 
+ [81] "Organism"                                                 
+ [82] "Overall AD neuropathological Change"                      
+ [83] "Overall CAA Score"                                        
+ [84] "PMI"                                                      
+ [85] "Primary Study Name"                                       
+ [86] "RIN"                                                      
+ [87] "Race (choice=Asian)"                                      
+ [88] "Race (choice=Native Hawaiian or Pacific Islander)"        
+ [89] "Race (choice=Other)"                                      
+ [90] "Race (choice=Unknown or unreported)"                      
+ [91] "Race (choice=White)"                                      
+ [92] "Secondary Study Name"                                     
+ [93] "Severely Affected Donor"                                  
+ [94] "Sex"                                                      
+ [95] "Subclass"                                                 
+ [96] "Supertype"                                                
+ [97] "Thal"                                                     
+ [98] "Total Microinfarcts (not observed grossly)"               
+ [99] "Total microinfarcts in screening sections"                
+[100] "Used in analysis"                                         
+[101] "Years of education"                                       
+[102] "alignment"                                                
+[103] "amplified_quantity_ng"                                    
+[104] "ar_id"                                                    
+[105] "avg_size_bp"                                              
+[106] "batch_vendor_name"                                        
+[107] "bc"                                                       
+[108] "cell_prep_type"                                           
+[109] "exp_component_vendor_name"                                
+[110] "expc_cell_capture"                                        
+[111] "experiment_component_failed"                              
+[112] "facs_population_plan"                                     
+[113] "library_input_ng"                                         
+[114] "library_prep"                                             
+[115] "library_prep_pass_fail"                                   
+[116] "load_name"                                                
+[117] "method"                                                   
+[118] "pcr_cycles"                                               
+[119] "percent_cdna_longer_than_400bp"                           
+[120] "quantification_fmol"                                      
+[121] "r1_index"                                                 
+[122] "rna_amplification"                                        
+[123] "rna_amplification_pass_fail"                              
+[124] "sample_id"                                                
+[125] "sample_name"                                              
+[126] "sample_quantity_count"                                    
+[127] "specify other race"                                       
+
+Столбцы, похожие на CPS / патологию / донора / область / тип клеток:
+ [1] "APOE Genotype"                                     
+ [2] "Age at Death"                                      
+ [3] "Braak"                                             
+ [4] "Brain Region"                                      
+ [5] "Class"                                             
+ [6] "Donor ID"                                          
+ [7] "GEX_Reads_mapped_confidently_to_exonic_regions"    
+ [8] "GEX_Reads_mapped_confidently_to_intergenic_regions"
+ [9] "GEX_Reads_mapped_confidently_to_intronic_regions"  
+[10] "Multiome_Feature_linkages_detected"                
+[11] "Severely Affected Donor"                           
+[12] "Sex"                                               
+[13] "Subclass"                                          
+[14] "Supertype"                                         
+[15] "Thal"                                              
+[16] "cell_prep_type"                                    
+
+==== APOE Genotype | тип: factor | уникальных значений: 6 
+x
+   2/2    2/3    2/4    3/3    3/4    4/4 
+   708  28330   3666 143325  47881  16741 
+
+==== ATAC_Confidently_mapped_read_pairs | тип: numeric | уникальных значений: 195 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.8690  0.8992  0.9055  0.9060  0.9124  0.9294  178337 
+
+==== ATAC_Fraction_of_genome_in_peaks | тип: numeric | уникальных значений: 173 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+0.00900 0.02630 0.03180 0.03146 0.03810 0.05240  178337 
+
+==== ATAC_Fraction_of_high_quality_fragments_in_cells | тип: numeric | уникальных значений: 247 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.0778  0.7098  0.8185  0.7590  0.8750  0.9370  178337 
+
+==== ATAC_Fraction_of_high_quality_fragments_overlapping_TSS | тип: numeric | уникальных значений: 232 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.1239  0.1737  0.1893  0.1897  0.2040  0.2490  178337 
+
+==== ATAC_Fraction_of_high_quality_fragments_overlapping_peaks | тип: numeric | уникальных значений: 239 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.0681  0.1848  0.2272  0.2274  0.2722  0.4019  178337 
+
+==== ATAC_Fraction_of_transposition_events_in_peaks_in_cells | тип: numeric | уникальных значений: 248 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.0616  0.1651  0.2007  0.2038  0.2463  0.3749  178337 
+
+==== ATAC_Mean_raw_read_pairs_per_cell | тип: numeric | уникальных значений: 257 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+  40199  115367  142521  152576  171419  594080  178337 
+
+==== ATAC_Median_high_quality_fragments_per_cell | тип: numeric | уникальных значений: 257 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+   2632   33186   43540   43736   53495  103460  178337 
+
+==== ATAC_Non-nuclear_read_pairs | тип: numeric | уникальных значений: 93 
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.      NAs 
+0.001500 0.004200 0.005600 0.006352 0.007700 0.024500   178337 
+
+==== ATAC_Number_of_peaks | тип: numeric | уникальных значений: 257 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+  33013   96778  117921  115710  140928  192366  178337 
+
+==== ATAC_Percent_duplicates | тип: numeric | уникальных значений: 250 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.1757  0.3398  0.3939  0.3987  0.4414  0.8346  178337 
+
+==== ATAC_Q30_bases_in_barcode | тип: numeric | уникальных значений: 214 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.7553  0.9090  0.9182  0.9144  0.9297  0.9506  178337 
+
+==== ATAC_Q30_bases_in_read_1 | тип: numeric | уникальных значений: 168 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.8935  0.9494  0.9562  0.9526  0.9598  0.9720  178337 
+
+==== ATAC_Q30_bases_in_read_2 | тип: numeric | уникальных значений: 166 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.9005  0.9421  0.9480  0.9461  0.9523  0.9602  178337 
+
+==== ATAC_Q30_bases_in_sample_index_i1 | тип: numeric | уникальных значений: 219 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.8390  0.9090  0.9224  0.9192  0.9365  0.9697  178337 
+
+==== ATAC_Sequenced_read_pairs | тип: numeric | уникальных значений: 257 
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.       NAs 
+3.275e+08 9.159e+08 1.036e+09 1.066e+09 1.203e+09 2.054e+09    178337 
+
+==== ATAC_TSS_enrichment_score | тип: numeric | уникальных значений: 256 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+  2.371   3.669   4.023   4.087   4.536   5.861  178337 
+
+==== ATAC_Unmapped_read_pairs | тип: numeric | уникальных значений: 115 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+0.00450 0.00900 0.01080 0.01151 0.01270 0.03240  178337 
+
+==== ATAC_Valid_barcodes | тип: numeric | уникальных значений: 137 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.8842  0.9765  0.9795  0.9780  0.9815  0.9869  178337 
+
+==== Age at Death | тип: numeric | уникальных значений: 30 
+x
+   65    68    69    70    72    75    77    78    80    81    82    83    84    85    86 
+  512  4127  5177  4865  7284  8168  1132  3843  7949 11046 10631  6608  5100  2408  4341 
+   87    88    89    90    91    92    93    94    95    96    97    98    99   100   102 
+ 8366 13169  8491  7848 12903 14738 18264 24736  2758  4985  9243 16639 10353  2381  2586 
+
+==== Arteriolosclerosis | тип: factor | уникальных значений: 3 
+x
+    Mild Moderate   Severe 
+   94948    86096    59607 
+
+==== Atherosclerosis | тип: factor | уникальных значений: 4 
+x
+    Mild Moderate   Severe      nan 
+   51185   153409    13896    22161 
+
+==== Braak | тип: factor | уникальных значений: 6 
+x
+  Braak 0  Braak II Braak III  Braak IV   Braak V  Braak VI 
+     6763     17536     17893     59138     90805     48516 
+
+==== Brain Region | тип: factor | уникальных значений: 10 
+x
+  HIP   MEC   LEC   ITG   MTG    FI   STG   DFC   AnG   V1C 
+14190 63137 11791 16111 36686 17445 15214 41553 10279 14245 
+
+==== Brain pH | тип: numeric | уникальных значений: 14 
+x
+  4.5     6   6.2   6.4   6.5   6.6   6.7   6.8   6.9     7   7.2   7.3   7.4   7.6 
+  657  4583  7308 73595  6681 23530 11416 64290   604 15033 18631  2930  6998  4395 
+
+==== CERAD score | тип: factor | уникальных значений: 4 
+x
+  Absent Frequent Moderate   Sparse 
+   45988    82094    84540    28029 
+
+==== Class | тип: factor | уникальных значений: 1 
+x
+Non-neuronal and Non-neural 
+                     240651 
+
+==== Cognitive Status | тип: factor | уникальных значений: 2 
+x
+   Dementia No dementia 
+     119145      121506 
+
+==== Donor ID | тип: factor | уникальных значений: 84 
+[1] H21.33.036 H20.33.029 H21.33.027 H21.33.019 H20.33.013
+84 Levels: H19.33.004 H20.33.001 H20.33.002 H20.33.004 H20.33.005 H20.33.008 ... H21.33.047
+
+==== Doublet score | тип: numeric | уникальных значений: 922 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.00000 0.00000 0.00000 0.01878 0.02222 0.92000 
+
+==== Fraction mitochondrial UMIs | тип: numeric | уникальных значений: 147752 
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.0000000 0.0009672 0.0024498 0.0060223 0.0060790 0.5979325 
+
+==== Fresh Brain Weight | тип: factor | уникальных значений: 74 
+[1] 985.0  1016.0 1214.0 1280.0 1212.0
+74 Levels: 908.0 925.0 931.0 956.0 972.0 985.0 991.0 1003.0 1005.0 1008.0 1009.0 ... Unavailable
+
+==== GEX_Estimated_number_of_cells | тип: integer | уникальных значений: 864 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1621    7840    9158   10072   10997   35454 
+
+==== GEX_Fraction_of_transcriptomic_reads_in_cells | тип: numeric | уникальных значений: 446 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2359  0.8233  0.8690  0.8465  0.8980  0.9750 
+
+==== GEX_Mean_raw_reads_per_cell | тип: numeric | уникальных значений: 905 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  26022  129936  149909  163005  181160  850700 
+
+==== GEX_Median_UMI_counts_per_cell | тип: numeric | уникальных значений: 900 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    710   10448   15533   15626   19942   50229 
+
+==== GEX_Median_genes_per_cell | тип: numeric | уникальных значений: 831 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    517    3840    4898    4668    5599    7760 
+
+==== GEX_Percent_duplicates | тип: numeric | уникальных значений: 249 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.3758  0.6886  0.7664  0.7602  0.8406  0.9815  178337 
+
+==== GEX_Q30_bases_in_UMI | тип: numeric | уникальных значений: 233 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.8907  0.9370  0.9470  0.9496  0.9600  0.9850 
+
+==== GEX_Q30_bases_in_barcode | тип: numeric | уникальных значений: 215 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.9120  0.9413  0.9510  0.9517  0.9620  0.9804 
+
+==== GEX_Q30_bases_in_read_2 | тип: numeric | уникальных значений: 257 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.8726  0.9200  0.9310  0.9343  0.9480  0.9763 
+
+==== GEX_Q30_bases_in_sample_index_i1 | тип: numeric | уникальных значений: 226 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.8316  0.9462  0.9606  0.9570  0.9784  0.9913  178337 
+
+==== GEX_Q30_bases_in_sample_index_i2 | тип: numeric | уникальных значений: 226 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.8475  0.9307  0.9623  0.9530  0.9766  0.9909  178337 
+
+==== GEX_Reads_mapped_antisense_to_gene | тип: numeric | уникальных значений: 436 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0100  0.0660  0.1012  0.1129  0.1470  0.3660 
+
+==== GEX_Reads_mapped_confidently_to_exonic_regions | тип: numeric | уникальных значений: 322 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0920  0.1510  0.1670  0.1686  0.1810  0.3730 
+
+==== GEX_Reads_mapped_confidently_to_genome | тип: numeric | уникальных значений: 428 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2400  0.8340  0.8700  0.8526  0.9008  0.9457 
+
+==== GEX_Reads_mapped_confidently_to_intergenic_regions | тип: numeric | уникальных значений: 186 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.03300 0.06710 0.07000 0.07082 0.07340 0.12200 
+
+==== GEX_Reads_mapped_confidently_to_intronic_regions | тип: numeric | уникальных значений: 469 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0640  0.5910  0.6280  0.6132  0.6592  0.7353 
+
+==== GEX_Reads_mapped_confidently_to_transcriptome | тип: numeric | уникальных значений: 446 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.1950  0.6320  0.6718  0.6584  0.6990  0.7690 
+
+==== GEX_Reads_mapped_to_genome | тип: numeric | уникальных значений: 283 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.7090  0.9250  0.9440  0.9369  0.9564  0.9741 
+
+==== GEX_Reads_with_TSO | тип: numeric | уникальных значений: 245 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.0001  0.1492  0.2196  0.2399  0.3121  0.6553  178337 
+
+==== GEX_Sequenced_read_pairs | тип: numeric | уникальных значений: 257 
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.       NAs 
+4.641e+08 1.105e+09 1.294e+09 1.307e+09 1.500e+09 2.382e+09    178337 
+
+==== GEX_Total_genes_detected | тип: integer | уникальных значений: 721 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  27149   33298   33649   33493   33910   34773 
+
+==== GEX_Valid_UMIs | тип: numeric | уникальных значений: 28 
+x
+0.9965 0.9967 0.9968 0.9972 0.9975 0.9976 0.9977 0.9978 0.9979  0.998 0.9981 0.9982 0.9983 
+   382    233    193    117    236    406   1480   1643   1103   1121   4048   1700   2948 
+0.9984 0.9985 0.9986 0.9987 0.9988 0.9989  0.999 0.9991 0.9992 0.9993 0.9994 0.9995 0.9996 
+  2369   2892   4805   5494   3152   4628   1349   1179    975   3885   2020   4136   7107 
+0.9997    NaN 
+  2713 178337 
+
+==== GEX_Valid_barcodes | тип: numeric | уникальных значений: 219 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.7810  0.9264  0.9379  0.9389  0.9579  0.9739  178337 
+
+==== GEX_number_of_reads | тип: numeric | уникальных значений: 650 
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.       NAs 
+6.597e+08 1.244e+09 1.422e+09 1.637e+09 1.809e+09 4.533e+09     62314 
+
+==== GEX_sequencing_saturation | тип: numeric | уникальных значений: 344 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.2740  0.5880  0.6660  0.6676  0.7470  0.9550   62314 
+
+==== Gender | тип: factor | уникальных значений: 2 
+x
+Female   Male 
+139288 101363 
+
+==== Genes detected | тип: integer | уникальных значений: 6310 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    127    1897    2632    2701    3437   10554 
+
+==== Genome | тип: factor | уникальных значений: 1 
+x
+GRCh38 
+240651 
+
+==== Highest Lewy Body Disease | тип: factor | уникальных значений: 7 
+x
+                        Amygdala-predominant                        Brainstem-predominant 
+                                       28804                                         2794 
+                       Limbic (Transitional)                        Neocortical (Diffuse) 
+                                       17080                                        18576 
+    Not Identified (olfactory bulb assessed) Not Identified (olfactory bulb not assessed) 
+                                       24388                                       146776 
+                         Olfactory bulb only 
+                                        2233 
+
+==== Highest level of education | тип: factor | уникальных значений: 5 
+x
+                Bachelors    Graduate (PhD/Masters)               High School 
+                    54472                     68480                     61682 
+             Professional Trade School/ Tech School 
+                     7702                     48315 
+
+==== Interval from last CASI in months | тип: numeric | уникальных значений: 61 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+   0.70   12.00   22.50   28.73   39.50  127.20   49128 
+
+==== Interval from last MMSE in months | тип: numeric | уникальных значений: 71 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+   1.80   14.50   23.80   33.72   48.60  117.60   16555 
+
+==== Interval from last MOCA in months | тип: numeric | уникальных значений: 15 
+x
+  10.1   11.1   14.9   15.2   15.8   22.1   23.9   33.4   36.1   39.5   41.2   45.1   51.3 
+  4148   3861   2586   1270   1265   1469    520   1885    968   5766  10080   4865   4127 
+  62.2    NaN 
+  4538 193303 
+
+==== LATE | тип: factor | уникальных значений: 5 
+x
+  LATE Stage 1   LATE Stage 2   LATE Stage 3 Not Identified Unclassifiable 
+         36206         100787          14164          84317           5177 
+
+==== Last CASI Score | тип: numeric | уникальных значений: 30 
+x
+   66    67    68    70    71    74    75    77    78    79    80    81    83    84    85 
+  657  1758  3573  3047  9138  1239  5766  5278  2441  8455  7094  3389  1085  5927  2939 
+   86    87    88    89    90    91    92    93    94    95    96    97    98    99   NaN 
+ 5384  1490 13367  8923  1104  9279 13925 11022 13429  5543  4784 20782 11376  9329 49128 
+
+==== Last MMSE Score | тип: numeric | уникальных значений: 19 
+x
+    6    11    14    17    18    19    20    21    22    23    24    25    26    27    28 
+ 1132   512  6507  1420  5354  2441  1923 15581 22591 16266 12323 25854 16127 37349  9560 
+   29    30    33   NaN 
+27192 20166  1798 16555 
+
+==== Last MOCA Score | тип: numeric | уникальных значений: 11 
+x
+     4      7     14     16     17     19     20     21     23     25    NaN 
+  6507   4127    520   3354   4865   2586   3573  14165    968   6683 193303 
+
+==== Multiome_Feature_linkages_detected | тип: numeric | уникальных значений: 257 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+   1809  338784  808832 1079238 1493158 4226673  178337 
+
+==== Multiome_Linked_genes | тип: numeric | уникальных значений: 256 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+   1248   13677   17158   15878   19226   21752  178337 
+
+==== Multiome_Linked_peaks | тип: numeric | уникальных значений: 257 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+   1583   52445   82670   82685  114826  167038  178337 
+
+==== NeuN positive fraction on FANS | тип: numeric | уникальных значений: 18 
+x
+  0.38    0.4   0.44   0.46    0.5   0.56   0.57    0.6   0.62   0.63   0.64   0.65   0.66 
+   299    542    670    690  54061    381    991    578    462   1565    538   1336    304 
+  0.68    0.7   0.74    0.9      1 
+   204 177355    265    344     66 
+
+==== Neurotypical reference | тип: character | уникальных значений: 1 
+x
+ FALSE 
+240651 
+
+==== Number of UMIs | тип: numeric | уникальных значений: 20813 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    138    3252    5266    6261    8162   79658 
+
+==== Number of mapped reads | тип: numeric | уникальных значений: 69525 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+    540   12406   22027   33735   39998 1510322   62314 
+
+==== Number of multimapped reads | тип: numeric | уникальных значений: 4520 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+    0.0   154.0   297.0   502.6   585.0 24485.0   62314 
+
+==== Number of reads | тип: numeric | уникальных значений: 71080 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+    541   12821   22796   34976   41450 1565372   62314 
+
+==== Number of unmapped reads | тип: numeric | уникальных значений: 5762 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+    0.0   240.0   452.0   738.4   867.0 36541.0   62314 
+
+==== Organism | тип: factor | уникальных значений: 1 
+x
+ human 
+240651 
+
+==== Overall AD neuropathological Change | тип: factor | уникальных значений: 4 
+x
+        High Intermediate          Low       Not AD 
+      123712        50349        43458        23132 
+
+==== Overall CAA Score | тип: factor | уникальных значений: 4 
+x
+          Mild       Moderate Not identified         Severe 
+         31128         115243          91032           3248 
+
+==== PMI | тип: numeric | уникальных значений: 60 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  3.200   5.000   7.000   6.968   8.300  11.417 
+
+==== Primary Study Name | тип: factor | уникальных значений: 2 
+x
+               ACT ADRC Clinical Core 
+            191523              49128 
+
+==== RIN | тип: numeric | уникальных значений: 65 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.900   7.930   8.670   8.396   9.170   9.600 
+
+==== Race (choice=Asian) | тип: factor | уникальных значений: 2 
+x
+  Checked Unchecked 
+    10021    230630 
+
+==== Race (choice=Native Hawaiian or Pacific Islander) | тип: factor | уникальных значений: 1 
+x
+Unchecked 
+   240651 
+
+==== Race (choice=Other) | тип: factor | уникальных значений: 2 
+x
+  Checked Unchecked 
+     5434    235217 
+
+==== Race (choice=Unknown or unreported) | тип: factor | уникальных значений: 1 
+x
+Unchecked 
+   240651 
+
+==== Race (choice=White) | тип: factor | уникальных значений: 2 
+x
+  Checked Unchecked 
+   230630     10021 
+
+==== Secondary Study Name | тип: factor | уникальных значений: 3 
+x
+ADRC Clinical Core                SLS                nan 
+             14455               8743             217453 
+
+==== Severely Affected Donor | тип: factor | уникальных значений: 2 
+x
+     N      Y 
+216446  24205 
+
+==== Sex | тип: factor | уникальных значений: 2 
+x
+Female   Male 
+138684 101967 
+
+==== Subclass | тип: factor | уникальных значений: 1 
+x
+Immune 
+240651 
+
+==== Supertype | тип: factor | уникальных значений: 8 
+x
+           Monocyte         Micro-PVM_1         Micro-PVM_2 Micro-PVM_2_1-SEAAD 
+                 42                7909              141248                1458 
+Micro-PVM_2_3-SEAAD   Micro-PVM_3-SEAAD   Micro-PVM_4-SEAAD          Lymphocyte 
+              53815               29805                1767                4607 
+
+==== Thal | тип: factor | уникальных значений: 6 
+x
+Thal 0 Thal 1 Thal 2 Thal 3 Thal 4 Thal 5 
+ 23132  18772  23599  29986  85565  59597 
+
+==== Total Microinfarcts (not observed grossly) | тип: numeric | уникальных значений: 10 
+x
+     0      1      2      3      4      5      7      9     11     15 
+140677  61879  18232   4674   2925   1253   2586   2936   4628    861 
+
+==== Total microinfarcts in screening sections | тип: numeric | уникальных значений: 9 
+x
+     0      1      2      3      4      5      8      9     10 
+155483  62356  10732   1270   3452   1253   3547   1697    861 
+
+==== Used in analysis | тип: factor | уникальных значений: 1 
+x
+  True 
+240651 
+
+==== Years of education | тип: numeric | уникальных значений: 10 
+x
+   12    13    14    15    16    17    18    19    20    21 
+45991 14099 28315 18737 45182 14241 42021  1771  7658 22636 
+
+==== alignment | тип: factor | уникальных значений: 2 
+x
+     Cell Ranger 6.0 cellranger-arc-2.0.0 
+              178337                62314 
+
+==== amplified_quantity_ng | тип: numeric | уникальных значений: 905 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  3.031  27.599  51.019  76.606 104.257 536.432 
+
+==== ar_id | тип: factor | уникальных значений: 905 
+[1] 1266294882 1256476298 1277848643 1254918487 1262636994
+905 Levels: 0a33aca89764b3e52c06d8fb88cd1f7c51a9510b ...
+
+==== avg_size_bp | тип: integer | уникальных значений: 156 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  379.0   444.0   461.0   462.1   478.0   597.0 
+
+==== batch_vendor_name | тип: factor | уникальных значений: 243 
+[1] RTX-4077 RTX-4072 RTX-4085 RTX-4070 RTX-4075
+243 Levels: MTX-2016 MTX-2017 MTX-2018 MTX-2019 MTX-2020 MTX-2023 MTX-2024 ... RTX-4107
+
+==== bc | тип: factor | уникальных значений: 233793 
+[1] AAAGAACTCCAACACA AACAACCTCTATTTCG AACCATGCACGGGTAA AAGCCATCAGACCAAG AAGCGTTTCTGCTTTA
+233793 Levels: AAACAGCCAAACTCAT AAACAGCCAAACTGTT AAACAGCCAACAACAA ... TTTGTTGTCTTTACAC
+
+==== cell_prep_type | тип: factor | уникальных значений: 1 
+x
+Nuclei 
+240651 
+
+==== exp_component_vendor_name | тип: factor | уникальных значений: 905 
+[1] NW-TX4077-2 NW-TX4072-1 NW-TX4085-2 NW-TX4070-2 NW-TX4075-2
+905 Levels: NW-MX2154-8 NW-MX2154-9 NW-MX2159-2 NW-MX2159-3 NW-MX2159-4 ... SQ_TX4060-4
+
+==== expc_cell_capture | тип: integer | уникальных значений: 244 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3478   10000   10416   11991   10611   20000 
+
+==== experiment_component_failed | тип: character | уникальных значений: 2 
+x
+ FALSE   TRUE 
+239104   1547 
+
+==== facs_population_plan | тип: factor | уникальных значений: 23 
+x
+38% NeuN+, 62% NeuN- 40% NeuN+, 60% NeuN- 44% NeuN+, 56% NeuN- 46% NeuN+, 54% NeuN- 
+                 299                  542                  670                  738 
+50% NeuN+, 50% NeuN- 53% NeuN+, 47% NeuN- 55% NeuN+, 45% NeuN- 56% NeuN+, 44% NeuN- 
+               53969                   92                   28                  381 
+57% NeuN+, 43% NeuN- 59% NeuN+, 41% NeuN- 60% NeuN+, 40% NeuN- 61% NeuN+, 39% NeuN- 
+                 991                   53                  678                  200 
+62% NeuN+, 38% NeuN- 63% NeuN+, 37% NeuN- 64% NeuN+, 36% NeuN- 65% NeuN+, 35% NeuN- 
+                 462                 1565                 1770                 1153 
+66% NeuN+, 34% NeuN- 68% NeuN+, 32% NeuN- 70% NeuN+, 30% NeuN- 71% NeuN+, 29% NeuN- 
+                 487                  204               175122                  572 
+74% NeuN+, 26% NeuN- 90% NeuN+, 10% NeuN- 100% NeuN+, 0% NeuN- 
+                 265                  344                   66 
+
+==== library_input_ng | тип: numeric | уникальных значений: 904 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   27.02   50.54   76.08  102.78  536.43 
+
+==== library_prep | тип: factor | уникальных значений: 905 
+[1] L8HX_230330_23_E03 L8HX_230309_22_F08 L8HX_230601_22_F04 L8HX_230302_01_B07
+[5] L8HX_230323_22_H01
+905 Levels: L8HX_220519_03_F02 L8HX_220519_03_H02 L8HX_220526_02_A05 ... L8XR_240801_02_F09
+
+==== library_prep_pass_fail | тип: factor | уникальных значений: 1 
+x
+  Pass 
+240651 
+
+==== load_name | тип: factor | уникальных значений: 905 
+[1] 1661_B02   1638_A02   1725_B01   1629_B02   1655.1_B02
+905 Levels: 396_A08 396_B08 396_C08 405_A08 414_A09 414_B09 414_D09 414_E09 414_F09 ... 2351_B09
+
+==== method | тип: factor | уникальных значений: 3 
+x
+   10Xv3.1   10xMulti 10xV3.1_HT 
+    134565      62314      43772 
+
+==== pcr_cycles | тип: numeric | уникальных значений: 11 
+x
+    8     9    10    11    12    13    14    15    16    17    18 
+54955  2071  3833  1455 31988    75  6666 87154 35125  5427 11902 
+
+==== percent_cdna_longer_than_400bp | тип: numeric | уникальных значений: 412 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
+ 0.1220  0.8210  0.9120  0.9099  0.9820  9.0730     326 
+
+==== quantification_fmol | тип: numeric | уникальных значений: 905 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1031    3184    4260    4547    5621   13026 
+
+==== r1_index | тип: factor | уникальных значений: 186 
+[1] SI-TT-E3_i7 SI-TT-F8_i7 SI-TT-F4_i7 SI-TT-B7_i7 SI-TT-H1_i7
+186 Levels: SI-GA-A2 SI-GA-A3 SI-GA-A4 SI-GA-A5 SI-GA-A6 SI-GA-A7 SI-GA-A8 ... SI-TT-H12_i7
+
+==== rna_amplification | тип: factor | уникальных значений: 905 
+[1] A8HX_230327_02_B02 A8HX_230306_02_A02 A8HX_230530_02_B01 A8HX_230227_01_B02
+[5] A8HX_230320_02_B02
+905 Levels: A8HX_220517_02_B02 A8HX_220517_02_C02 A8HX_220523_01_A02 ... A8XR_240730_01_A03
+
+==== rna_amplification_pass_fail | тип: factor | уникальных значений: 2 
+x
+  Fail   Pass 
+   529 240122 
+
+==== sample_id | тип: character | уникальных значений: 240651 
+[1] "AAAGAACTCCAACACA-L8HX_230330_23_E03-1266294882"
+[2] "AACAACCTCTATTTCG-L8HX_230330_23_E03-1266294882"
+[3] "AACCATGCACGGGTAA-L8HX_230330_23_E03-1266294882"
+[4] "AAGCCATCAGACCAAG-L8HX_230330_23_E03-1266294882"
+[5] "AAGCGTTTCTGCTTTA-L8HX_230330_23_E03-1266294882"
+
+==== sample_name | тип: factor | уникальных значений: 905 
+[1] M1HX_230323_405_2_B01 M2HX_230227_401_2_A01 M1HX_230522_432_1_B01 M1HX_230220_407_2_B01
+[5] M1HX_230313_404_2_B01
+905 Levels: M1HX_220516_401_1_B01 M1HX_220516_404_1_C01 ... M2XM_240614_153-R_C01
+
+==== sample_quantity_count | тип: integer | уникальных значений: 323 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5600   16000   16140   18679   16358   30769 
+
+==== specify other race | тип: factor | уникальных значений: 2 
+x
+ Mixed    nan 
+  5434 235217 
+
+######## 2. СЫРЫЕ COUNTS НА СЛУЧАЙНЫХ 5000 ЯДРАХ ########
+Размер матрицы (гены × ядра): 36601 240651 
+Пример значений (должны быть целые числа, если это сырые counts):
+            [,1] [,2] [,3] [,4] [,5]
+MIR1302-2HG    0    0    0    0    0
+FAM138A        0    0    0    0    0
+OR4F5          0    0    0    0    0
+AL627309.1     0    0    0    0    0
+AL627309.3     0    0    0    0    0
+
+Сколько генов обнаружено в одном ядре:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    189    1896    2629    2719    3474    7670 
+
+Сколько UMI (молекул) в одном ядре:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    212    3224    5266    6343    8342   37703 
+
+Число генов, обнаруженных хотя бы в доле ядер:
+  any   10%   30%   50% 
+30351  7614  2910  1243 
+
+30 самых часто обнаруживаемых генов:
+  MALAT1    NEAT1   PLXDC2    DOCK4    CELF2   FRMD4A    LRMDA    ELMO1    FOXN3     SSH2 
+    1.00     0.99     0.98     0.98     0.98     0.98     0.98     0.97     0.97     0.97 
+ARHGAP24 ARHGAP26   CHST11    MEF2A   SLC1A3      QKI    ITPR2  LDLRAD4    DOCK8   SFMBT2 
+    0.97     0.97     0.97     0.97     0.97     0.97     0.96     0.96     0.96     0.95 
+  PICALM    MBNL1  ST6GAL1    MEF2C     GNAQ      FTX    TCF12   SRGAP2    MAML2   FAM49B 
+    0.95     0.95     0.95     0.95     0.95     0.95     0.95     0.95     0.95     0.94 
+
+Доля ядер, где обнаружены гены-кандидаты:
+ P2RY12  CX3CR1 TMEM119   CSF1R   TREM2  TYROBP    APOE    SPP1   GPNMB     LPL     CD9 
+   0.68    0.49    0.18    0.83    0.24    0.41    0.64    0.74    0.15    0.06    0.07 
+   CD74   PLCG2  INPP5D  MS4A6A    SPI1    IRF8 
+   0.78    0.89    0.89    0.67    0.45    0.41 
+
+Кандидаты, которых нет среди названий генов (возможно, другие ID):
+character(0)

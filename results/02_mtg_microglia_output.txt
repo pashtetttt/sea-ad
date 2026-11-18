@@ -1,0 +1,92 @@
+
+######## 1. ФИЛЬТРАЦИЯ ########
+Всего ядер:                     240651 
+  в MTG:                        36686 
+  + без моноцитов/лимфоцитов:   35907 
+  + прошли контроль качества:   34679 
+
+Подтипы после фильтрации:
+
+        Micro-PVM_1         Micro-PVM_2 Micro-PVM_2_1-SEAAD Micro-PVM_2_3-SEAAD 
+               1335               20386                 277                8017 
+  Micro-PVM_3-SEAAD   Micro-PVM_4-SEAAD 
+               4259                 405 
+
+Доноров: 83 | ядер на донора:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   33.0   245.0   380.0   417.8   522.5  1034.0 
+
+######## 2. МАРКЕРЫ ПО ПОДТИПАМ (доля ядер, где ген обнаружен) ########
+        Micro-PVM_1 Micro-PVM_2 Micro-PVM_2_1-SEAAD Micro-PVM_2_3-SEAAD Micro-PVM_3-SEAAD
+MRC1           0.73        0.36                0.22                0.23              0.25
+LYVE1          0.64        0.20                0.16                0.17              0.16
+F13A1          0.78        0.14                0.31                0.23              0.15
+CD163          0.91        0.31                0.57                0.48              0.62
+P2RY12         0.21        0.77                0.76                0.69              0.60
+CX3CR1         0.06        0.58                0.47                0.47              0.36
+TMEM119        0.06        0.22                0.15                0.19              0.22
+APOE           0.58        0.70                0.59                0.56              0.68
+SPP1           0.31        0.79                0.81                0.80              0.71
+GPNMB          0.27        0.10                0.08                0.06              0.43
+TREM2          0.10        0.25                0.17                0.22              0.30
+        Micro-PVM_4-SEAAD
+MRC1                 0.05
+LYVE1                0.03
+F13A1                0.04
+CD163                0.38
+P2RY12               0.14
+CX3CR1               0.10
+TMEM119              0.04
+APOE                 0.68
+SPP1                 0.95
+GPNMB                0.49
+TREM2                0.22
+
+######## 3. 5000 СЛУЧАЙНЫХ ЯДЕР МИКРОГЛИИ MTG ########
+Все значения целые (значит, это сырые counts): TRUE 
+
+Доля, где ген обнаружен: отдельные ядра vs пробные метаклетки ( 122 шт. по 30 ядер)
+        nuclei metacells
+P2RY12    0.70      1.00
+CX3CR1    0.52      1.00
+TMEM119   0.19      0.99
+CSF1R     0.89      1.00
+TREM2     0.23      0.99
+TYROBP    0.42      1.00
+APOE      0.66      1.00
+SPP1      0.76      1.00
+GPNMB     0.14      0.95
+LPL       0.06      0.74
+CD9       0.06      0.70
+CD74      0.79      1.00
+PLCG2     0.90      1.00
+INPP5D    0.93      1.00
+MS4A6A    0.65      1.00
+SPI1      0.48      1.00
+IRF8      0.44      1.00
+
+######## 4. CPS (Travaglini 2026, локальный для MTG) ########
+-/                                                                                             /                                                                                             -                                                                                             Ядер без CPS: 0 
+
+CPS_Local по группам ADNC (на уровне доноров):
+  Overall AD neuropathological Change CPS_Local.n CPS_Local.median
+1                                High       41.00             0.68
+2                        Intermediate       21.00             0.43
+3                                 Low       12.00             0.14
+4                              Not AD        9.00             0.06
+
+CPS_Local по стадиям Braak:
+      Braak CPS_Local.n CPS_Local.median
+1   Braak 0        2.00             0.08
+2  Braak II        4.00             0.21
+3 Braak III        6.00             0.25
+4  Braak IV       23.00             0.27
+5   Braak V       33.00             0.62
+6  Braak VI       15.00             0.70
+
+CPS_Local у сильно поражённых доноров (Severely Affected Donor):
+  Severely Affected Donor CPS_Local.n CPS_Local.median
+1                       N       73.00             0.46
+2                       Y       10.00             0.69
+
+Сохранено: data/processed/mtg_microglia_meta.rds ( 34679 ядер )

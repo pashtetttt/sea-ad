@@ -1,0 +1,74 @@
+Data: 983 metacells x 50 variables
+
+######## ARACNE ########
+  MI threshold: 0.00565 (corresponds to |rho| ~ 0.106 )
+  time: 0.01 min
+  edges: 71 
+
+######## PC ########
+  time: 0.14 min
+  edges: 28 | of which oriented: 25 
+
+######## MIIC ########
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 111
+  time: 1.17 min
+  edges: 111 | oriented: 30 | with a possible latent cause (<->): 9 
+
+######## METHOD COMPARISON ########
+
+Number of edges:
+ARACNE     PC   MIIC 
+    71     28    111 
+
+Edge overlap between methods (Jaccard index = shared / union):
+       ARACNE   PC MIIC
+ARACNE   1.00 0.27 0.48
+PC       0.27 1.00 0.22
+MIIC     0.48 0.22 1.00
+
+Edges found by all methods: 21 
+                 edge   rho
+         ABI3 -- SPI1 0.532
+         APOE -- C1QA 0.618
+       APOE -- TYROBP 0.595
+       BIN1 -- TGFBR1 0.667
+         C1QA -- C1QB 0.809
+         CD163 -- FGR 0.652
+       CD163 -- TGFBI 0.588
+      CD74 -- HLA-DRA 0.825
+      CSF1R -- PICALM 0.710
+     CX3CR1 -- P2RY12 0.753
+      DIRC3 -- IQGAP2 0.599
+    GAS2L3 -- ZNF804A 0.397
+      GPNMB -- IQGAP2 0.590
+      GPR34 -- OLFML3 0.399
+  MEF2C -- total_UMIs 0.784
+      MS4A6A -- PLCG2 0.694
+      P2RY12 -- SALL1 0.658
+ PICALM -- total_UMIs 0.764
+  PLCG2 -- total_UMIs 0.735
+      PLXNC1 -- TGFBI 0.577
+     TPRG1 -- ZNF804A 0.533
+
+Neighbours of CPS_Local :
+  ARACNE  ( 1): PTPRG (0.44)
+  PC      ( 0):  ()
+  MIIC    (19): APOE (0.24), BIN1 (-0.2), C1QB (0.11), CD163 (0.05), CD74 (0.2), CD83 (-0.14), CSF1R (0.08), CX3CR1 (-0.04), FAM20A (-0.08), GPR34 (0.13), MS4A6A (0.04), P2RY12 (0.01), PICALM (0.07), PLCG2 (0), PTPRG (0.44), SLC2A5 (-0.14), SORL1 (0), SPP1 (0), total_UMIs (0.07)
+
+Neighbours of total_UMIs :
+  ARACNE  ( 8): CD33 (0.37), HEXB (0.55), MEF2C (0.78), PICALM (0.76), PLCG2 (0.74), SPI1 (0.72), TGFBR1 (0.63), ZNF804A (0.47)
+  PC      ( 3): MEF2C (0.78), PICALM (0.76), PLCG2 (0.74)
+  MIIC    (12): ABI3 (0.5), CD33 (0.37), CPS_Local (0.07), HEXB (0.55), INPP5D (0.76), MEF2C (0.78), MS4A6A (0.67), PICALM (0.76), PLCG2 (0.74), SLC2A5 (0.5), SPI1 (0.72), ZNF804A (0.47)
+
+Hubs — 10 nodes with the most connections (excluding total_UMIs):
+  ARACNE  CD163=9, APOE=7, P2RY12=7, CD74=6, GPNMB=5, ZNF804A=5, CSF1R=4, CST3=4, GPR34=4, PTPRG=4
+  PC      C1QA=3, CD163=3, ZNF804A=3, APOE=2, CDK14=2, CSF1R=2, GAS2L3=2, GPNMB=2, IQGAP2=2, OLFML3=2
+  MIIC    CPS_Local=19, CSF1R=11, CD163=10, CD74=8, TPRG1=8, P2RY12=7, APOE=6, GPNMB=6, SELPLG=6, SPP1=6
+
+Orientation: edges oriented in both PC and MIIC: 4 | of which in the same direction: 3 
+
+Plots: results/networks/*.png (grey edges = positive association, red = negative)

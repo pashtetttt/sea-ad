@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# raw data (3 GB) and large intermediate files are not committed
+data/*
+!data/processed/
+data/processed/*.rds

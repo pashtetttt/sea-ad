@@ -1,0 +1,57 @@
+Biology genes: 34 | dropped:  
+Pool for data-driven selection: 8972 genes
+Metacells: homeostatic 642 | reactive 114 
+
+Final genes:
+    gene         source detect logFC_reactive_vs_homeo rho_CPS rho_depth
+  P2RY12        biology  0.998                      NA    0.01      0.35
+  CX3CR1        biology  0.999                      NA   -0.04      0.16
+ TMEM119        biology  0.991                      NA    0.23      0.34
+   CSF1R        biology  1.000                      NA    0.08      0.66
+   TREM2        biology  1.000                      NA    0.07      0.30
+  TYROBP        biology  1.000                      NA    0.13      0.50
+    APOE        biology  1.000                      NA    0.24      0.31
+    SPP1        biology  1.000                      NA    0.00      0.16
+   GPNMB        biology  0.845                      NA    0.19      0.34
+    CD74        biology  1.000                      NA    0.20      0.56
+ HLA-DRA        biology  1.000                      NA    0.10      0.42
+    C1QA        biology  1.000                      NA    0.11      0.42
+    C1QB        biology  1.000                      NA    0.11      0.52
+   CD163        biology  0.967                      NA    0.05      0.41
+   PLCG2        biology  1.000                      NA    0.00      0.74
+  INPP5D        biology  1.000                      NA    0.00      0.76
+  MS4A6A        biology  1.000                      NA    0.04      0.67
+  PICALM        biology  1.000                      NA    0.07      0.76
+   SORL1        biology  1.000                      NA    0.00      0.55
+    BIN1        biology  1.000                      NA   -0.20      0.37
+    CD33        biology  0.986                      NA    0.08      0.37
+    ABI3        biology  0.998                      NA    0.05      0.50
+    SPI1        biology  1.000                      NA    0.13      0.72
+    IRF8        biology  1.000                      NA   -0.14      0.44
+   MEF2C        biology  1.000                      NA   -0.02      0.78
+  P2RY13        biology  0.987                      NA    0.06      0.16
+   SALL1        biology  0.992                      NA    0.09      0.41
+   GPR34        biology  1.000                      NA    0.13      0.27
+  OLFML3        biology  0.814                      NA    0.05      0.13
+    HEXB        biology  0.997                      NA    0.11      0.55
+  SELPLG        biology  0.990                      NA    0.24      0.28
+  TGFBR1        biology  1.000                      NA   -0.14      0.63
+  SLC2A5        biology  1.000                      NA   -0.14      0.50
+    CST3        biology  1.000                      NA    0.16      0.30
+   TPRG1 up_in_reactive  0.952                    2.18    0.18      0.25
+   DIRC3 up_in_reactive  0.982                    1.57    0.28      0.29
+  FAM20A up_in_reactive  0.819                    1.45   -0.08      0.35
+   TGFBI up_in_reactive  0.822                    1.43    0.09      0.31
+   PLIN2 up_in_reactive  0.816                    1.39    0.11      0.34
+   PTPRG up_in_reactive  1.000                    1.35    0.44      0.28
+     FGR up_in_reactive  0.864                    1.35    0.12      0.29
+    CD83 up_in_reactive  0.889                    1.32   -0.14      0.03
+  TBC1D2 up_in_reactive  0.824                    1.30    0.04      0.37
+  IQGAP2 up_in_reactive  0.980                    1.30    0.29      0.40
+  GAS2L3 up_in_reactive  0.820                    1.23    0.06      0.34
+ ZNF804A up_in_reactive  0.999                    1.22    0.23      0.47
+  PLXNC1 up_in_reactive  0.974                    1.22    0.20      0.43
+   CDK14 up_in_reactive  0.993                    1.21    0.16      0.24
+
+Table size: 983 50 
+Saved: data/processed/network_dataset.csv/.tsv (previous version: network_dataset_v1_hvg.csv)
