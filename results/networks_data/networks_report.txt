@@ -1,0 +1,109 @@
+Input: data/processed/network_dataset_data.csv 
+Data: 983 rows x 62 variables
+
+######## ARACNE ########
+  MI threshold: 0.0056 (corresponds to |rho| ~ 0.106 )
+  time: 0.01 min
+  edges: 94 
+
+######## PC ########
+  adjacency values: 0:3571  1:27  2:246 
+  time: 0.44 min
+  edges: 148 | oriented: 23 | conflict (<->): 123 
+
+######## MIIC ########
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 124
+  time: 0.84 min
+  edges: 124 | oriented: 48 | with a possible latent cause (<->): 7 
+
+######## METHOD COMPARISON ########
+
+Number of edges:
+ARACNE     PC   MIIC 
+    94    148    124 
+
+Edge overlap between methods (Jaccard index = shared / union):
+       ARACNE   PC MIIC
+ARACNE   1.00 0.49 0.37
+PC       0.49 1.00 0.35
+MIIC     0.37 0.35 1.00
+
+Edges found by all methods: 54 
+                   edge    rho
+       ADAMTS17 -- CPA6  0.286
+    BTBD11 -- CPS_Local  0.232
+      C12orf42 -- GRID2  0.302
+     C12orf42 -- SLC7A1 -0.445
+      C12orf42 -- TPRG1 -0.429
+            CA8 -- PDK4  0.278
+      CA8 -- total_UMIs  0.259
+           CA8 -- TPRG1 -0.329
+    CATSPERE -- COL25A1  0.221
+ CATSPERE -- total_UMIs  0.318
+       CCDC26 -- CERNA2  0.391
+       CCDC26 -- MS4A4E  0.526
+         CCDC26 -- PDK4 -0.284
+       CD163 -- CD163L1  0.825
+         CD163 -- CLIC4  0.483
+        CD163 -- FAM20A  0.647
+          CD163 -- IL15  0.594
+       CD163 -- LDLRAD3  0.545
+         CD163 -- TPRG1  0.597
+          CD83 -- GPNMB  0.229
+        CLEC5A -- DIRC3  0.407
+         CLEC5A -- MGAM  0.444
+           CPA6 -- DEC1  0.269
+    CPS_Local -- PLCXD3 -0.222
+     CPS_Local -- PTPRG  0.435
+      CPS_Local -- ST18  0.245
+          DEC1 -- GRID2  0.251
+        DIRC3 -- IQGAP2  0.599
+       DOCK1 -- ZNF804A  0.392
+        EPHB1 -- MS4A4E  0.228
+       FAM20A -- FLVCR2  0.635
+       FAM20A -- SLC7A1  0.574
+      FLVCR2 -- TMEM163  0.649
+    FRMD3 -- total_UMIs  0.432
+      GAS2L3 -- ZNF804A  0.397
+          GPNMB -- HRH1  0.351
+        GPNMB -- IQGAP2  0.590
+         GPR183 -- HAMP  0.209
+       GRID2 -- PLEKHG1  0.194
+         HAMP -- TENT5A -0.326
+        HAMP -- TMEM163  0.711
+      MCC -- total_UMIs  0.262
+     MCF2 -- total_UMIs  0.344
+   MFHAS1 -- total_UMIs  0.467
+           MGAM -- MT2A  0.281
+           MGAM -- TSHR  0.307
+    NEDD4 -- total_UMIs  0.390
+        PLEKHG1 -- TSHR  0.180
+     PLS1 -- total_UMIs  0.344
+    PTH2R -- total_UMIs  0.277
+       PTPRG -- ZNF804A  0.456
+     RFC3 -- total_UMIs  0.306
+    SUGCT -- total_UMIs  0.360
+  TMEM182 -- total_UMIs  0.371
+
+Neighbours of CPS_Local :
+  ARACNE  ( 5): BTBD11 (0.23), NEXMIF (-0.18), PLCXD3 (-0.22), PTPRG (0.44), ST18 (0.25)
+  PC      ( 7): BTBD11 (0.23), CPA6 (0.24), NEXMIF (-0.18), PLCXD3 (-0.22), PTPRG (0.44), ST18 (0.25), TMEM163 (-0.17)
+  MIIC    (32): ADAMTS17 (0.14), BTBD11 (0.23), C12orf42 (0.08), CA8 (-0.02), CCDC26 (0), CD163L1 (-0.05), CD83 (-0.14), CERNA2 (-0.04), CGNL1 (-0.07), CLEC5A (0.11), CPA6 (0.24), DOCK1 (0.08), FAM20A (-0.08), FLT1 (0.12), GPR183 (-0.18), GRID2 (0.05), HAMP (-0.1), IFI44L (0.11), IL15 (0.2), IQGAP2 (0.29), MS4A4E (-0.02), MT2A (-0.12), PDK4 (0.08), PLAC8 (-0.06), PLCXD3 (-0.22), PTH2R (0.07), PTPRG (0.44), ST18 (0.25), TENT5A (-0.02), TMEM163 (-0.17), total_UMIs (0.07), TSHR (0.15)
+
+Neighbours of total_UMIs :
+  ARACNE  (17): BTBD11 (0.25), CA8 (0.26), CATSPERE (0.32), CGNL1 (0.22), FRMD3 (0.43), IL15 (0.48), MCC (0.26), MCF2 (0.34), MFHAS1 (0.47), MS4A4E (0.5), NEDD4 (0.39), PLS1 (0.34), PTH2R (0.28), RFC3 (0.31), SCGB2B2 (0.18), SUGCT (0.36), TMEM182 (0.37)
+  PC      (15): CA8 (0.26), CATSPERE (0.32), FLVCR2 (0.45), FRMD3 (0.43), IQGAP2 (0.4), MCC (0.26), MCF2 (0.34), MFHAS1 (0.47), MS4A4E (0.5), NEDD4 (0.39), PLS1 (0.34), PTH2R (0.28), RFC3 (0.31), SUGCT (0.36), TMEM182 (0.37)
+  MIIC    (17): CA8 (0.26), CATSPERE (0.32), CPS_Local (0.07), FRMD3 (0.43), IQGAP2 (0.4), MCC (0.26), MCF2 (0.34), MFHAS1 (0.47), NEDD4 (0.39), NEXMIF (0.14), PLS1 (0.34), PTH2R (0.28), RFC3 (0.31), SCGB2B2 (0.18), SUGCT (0.36), TMEM182 (0.37), ZNF804A (0.47)
+
+Hubs — 10 nodes with the most connections (excluding total_UMIs):
+  ARACNE  CD163=7, IQGAP2=7, C12orf42=6, CCDC26=6, TPRG1=6, ZNF804A=6, CPS_Local=5, GRID2=5, HAMP=5, ADAMTS17=4
+  PC      TPRG1=8, ZNF804A=8, C12orf42=7, CPA6=7, CPS_Local=7, HAMP=7, IQGAP2=7, SLC7A1=7, TSHR=7, CCDC26=6
+  MIIC    CPS_Local=32, CCDC26=10, CD163=9, TPRG1=7, ZNF804A=7, GPNMB=6, GRID2=6, HAMP=6, IQGAP2=6, PDK4=6
+
+Orientation: edges oriented in both PC and MIIC: 6 | of which in the same direction: 4 
+
+Plots: results/networks_data/*.png (grey edges = positive association, red = negative)

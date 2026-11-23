@@ -1,0 +1,93 @@
+Input: data/processed/network_dataset_nuclei_data.csv 
+Data: 996 rows x 62 variables
+
+######## ARACNE ########
+  MI threshold: 0.00567 (corresponds to |rho| ~ 0.106 )
+  time: 0.01 min
+  edges: 66 
+
+######## PC ########
+  adjacency values: 0:3686  1:22  2:136 
+  time: 4.71 min
+  edges: 88 | oriented: 18 | conflict (<->): 68 
+
+######## MIIC ########
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 82
+  time: 0.04 min
+  edges: 82 | oriented: 9 | with a possible latent cause (<->): 0 
+
+######## METHOD COMPARISON ########
+
+Number of edges:
+ARACNE     PC   MIIC 
+    66     88     82 
+
+Edge overlap between methods (Jaccard index = shared / union):
+       ARACNE   PC MIIC
+ARACNE   1.00 0.43 0.51
+PC       0.43 1.00 0.45
+MIIC     0.51 0.45 1.00
+
+Edges found by all methods: 38 
+                   edge   rho
+ ADAMTS17 -- total_UMIs 0.201
+      ALDH1A2 -- GPR183 0.119
+ C12orf42 -- total_UMIs 0.142
+       CCDC26 -- CERNA2 0.193
+      CCDC26 -- TMEM163 0.273
+       CD163 -- CD163L1 0.495
+          CD163 -- IL15 0.311
+        CD163 -- MS4A4E 0.235
+         CD163 -- TPRG1 0.303
+      CD163L1 -- SLC7A1 0.146
+          CD83 -- GPNMB 0.160
+    CGNL1 -- total_UMIs 0.163
+         CLEC5A -- MGAM 0.358
+   CLEC5A -- total_UMIs 0.230
+    CLIC4 -- total_UMIs 0.212
+        COL25A1 -- MCF2 0.128
+    CPS_Local -- IQGAP2 0.148
+        DIRC3 -- IQGAP2 0.247
+         DIRC3 -- TPRG1 0.242
+          DOCK1 -- IL15 0.175
+       DOCK1 -- ZNF804A 0.166
+          FLT1 -- PTPRG 0.140
+   FLVCR2 -- total_UMIs 0.243
+    FRMD3 -- total_UMIs 0.172
+        GPNMB -- IQGAP2 0.299
+       GPNMB -- ZNF804A 0.252
+   GPR183 -- total_UMIs 0.213
+        GRID2 -- PLCXD3 0.158
+    GRID2 -- total_UMIs 0.189
+        HAMP -- TMEM163 0.367
+   IFI44L -- total_UMIs 0.285
+   IQGAP2 -- total_UMIs 0.229
+   MFHAS1 -- total_UMIs 0.189
+     PDK4 -- total_UMIs 0.222
+       PLEKHG1 -- PTPRG 0.153
+  TMEM163 -- total_UMIs 0.311
+     total_UMIs -- TSHR 0.174
+       TPRG1 -- ZNF804A 0.245
+
+Neighbours of CPS_Local :
+  ARACNE  ( 1): IQGAP2 (0.15)
+  PC      ( 3): COL25A1 (-0.09), IQGAP2 (0.15), PTPRG (0.13)
+  MIIC    ( 3): IQGAP2 (0.15), PTPRG (0.13), TMEM163 (-0.09)
+
+Neighbours of total_UMIs :
+  ARACNE  (29): ADAMTS17 (0.2), C12orf42 (0.14), CD163 (0.31), CGNL1 (0.16), CLEC5A (0.23), CLIC4 (0.21), COL25A1 (0.12), DEC1 (0.13), FLT1 (0.14), FLVCR2 (0.24), FRMD3 (0.17), GPR183 (0.21), GRID2 (0.19), IFI44L (0.29), IQGAP2 (0.23), MFHAS1 (0.19), MT2A (0.12), PDK4 (0.22), PLEKHG1 (0.13), PLS1 (0.15), PTH2R (0.16), RFC3 (0.15), SCGB2B2 (0.13), SUGCT (0.14), TENT5A (0.16), TMEM163 (0.31), TMEM182 (0.11), TSHR (0.17), ZNF804A (0.21)
+  PC      (17): ADAMTS17 (0.2), C12orf42 (0.14), CD163L1 (0.28), CGNL1 (0.16), CLEC5A (0.23), CLIC4 (0.21), FLVCR2 (0.24), FRMD3 (0.17), GPR183 (0.21), GRID2 (0.19), IFI44L (0.29), IL15 (0.26), IQGAP2 (0.23), MFHAS1 (0.19), PDK4 (0.22), TMEM163 (0.31), TSHR (0.17)
+  MIIC    (31): ADAMTS17 (0.2), C12orf42 (0.14), CA8 (0.11), CATSPERE (0.13), CCDC26 (0.22), CD163 (0.31), CGNL1 (0.16), CLEC5A (0.23), CLIC4 (0.21), COL25A1 (0.12), CPA6 (0.16), DOCK1 (0.13), FAM20A (0.21), FLVCR2 (0.24), FRMD3 (0.17), GPR183 (0.21), GRID2 (0.19), IFI44L (0.29), IL15 (0.26), IQGAP2 (0.23), MFHAS1 (0.19), MT2A (0.12), NEDD4 (0.1), PDK4 (0.22), PLAC8 (0.17), PLS1 (0.15), SUGCT (0.14), TENT5A (0.16), TMEM163 (0.31), TSHR (0.17), ZNF804A (0.21)
+
+Hubs — 10 nodes with the most connections (excluding total_UMIs):
+  ARACNE  CD163=6, TMEM163=6, ZNF804A=5, GPNMB=4, IQGAP2=4, TPRG1=4, IL15=3, PTPRG=3, ADAMTS17=2, CCDC26=2
+  PC      CD163=7, FAM20A=7, TPRG1=7, GPNMB=6, ZNF804A=6, CLEC5A=5, DOCK1=5, IFI44L=5, IL15=5, IQGAP2=5
+  MIIC    CD163=10, TMEM163=8, CCDC26=5, CLEC5A=5, GPNMB=5, ZNF804A=5, DIRC3=4, DOCK1=4, IL15=4, IQGAP2=4
+
+Orientation: edges oriented in both PC and MIIC: 0 | of which in the same direction: 0 
+
+Plots: results/networks_data_nuclei/*.png (grey edges = positive association, red = negative)

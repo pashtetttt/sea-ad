@@ -1,6 +1,11 @@
 # 05_networks.R — network reconstruction with the three course methods (ARACNE, PC, MIIC) and comparison
 #
 # Input:  data/processed/network_dataset.csv  (983 metacells x 50 variables: CPS_Local, total_UMIs, 48 genes)
+#
+# To run on another table (e.g. the single-nucleus one), set these BEFORE sourcing the script:
+#   INPUT <- "data/processed/network_dataset_nuclei.csv"; OUT_DIR <- "results/networks_nuclei"
+#   source("R/05_networks.R")
+# (run rm(INPUT, OUT_DIR) afterwards to return to the defaults)
 # Output: results/05_networks_output.txt       — report
 #         results/networks/edges_*.csv          — edge list of each method
 #         results/networks/edges_comparison.csv — all edges and which methods found them
@@ -15,17 +20,21 @@ library(miic)
 library(igraph)
 set.seed(2026)
 
+if (!exists("INPUT"))   INPUT   <- "data/processed/network_dataset.csv"
+if (!exists("OUT_DIR")) OUT_DIR <- "results/networks"
+REPORT <- if (OUT_DIR == "results/networks") "results/05_networks_output.txt" else file.path(OUT_DIR, "networks_report.txt")  # always derived from OUT_DIR
+
 ALPHA_PC  <- 0.01    # significance level of the conditional independence tests in PC
 NULL_Q    <- 0.999   # ARACNE threshold: quantile of mutual information on shuffled data
 RUN_MIIC  <- TRUE    # MIIC is the slowest (minutes); can be switched off temporarily
 
-dir.create("results/networks", recursive = TRUE, showWarnings = FALSE)
-sink("results/05_networks_output.txt", split = TRUE)
+dir.create(OUT_DIR, recursive = TRUE, showWarnings = FALSE)
+sink(REPORT, split = TRUE)
 
-df   <- read.csv("data/processed/network_dataset.csv", check.names = FALSE)
+df   <- read.csv(INPUT, check.names = FALSE)
 vars <- colnames(df); n <- nrow(df); p <- ncol(df)
 rho  <- cor(df, method = "spearman")
-cat("Data:", n, "metacells x", p, "variables\n")
+cat("Input:", INPUT, "\nData:", n, "rows x", p, "variables\n")
 
 key  <- function(a, b) ifelse(a < b, paste(a, b, sep = " -- "), paste(b, a, sep = " -- "))
 timed <- function(expr) { t0 <- Sys.time(); r <- expr; cat("  time:", round(difftime(Sys.time(), t0, units = "mins"), 2), "min\n"); r }
@@ -57,17 +66,21 @@ edges_pc <- timed({
   C <- 2 * sin(pi / 6 * rho)
   pc_fit <- pc(suffStat = list(C = C, n = n), indepTest = gaussCItest, alpha = ALPHA_PC,
                labels = vars, skel.method = "stable", u2pd = "relaxed", solve.confl = TRUE)
-  A <- as(pc_fit@graph, "matrix")                 # A[i, j] = 1 means edge i -> j
+  A <- as(pc_fit@graph, "matrix")                 # A[i, j] != 0 means an edge mark i -> j
+  # Values other than 0/1 can appear (e.g. edges marked while solving orientation conflicts);
+  # every non-zero entry is an edge, so we test "> 0" rather than "== 1".
+  cat("  adjacency values:", paste(names(table(A)), table(A), sep = ":", collapse = "  "), "\n")
   out <- list()
   for (i in 1:(p - 1)) for (j in (i + 1):p) {
-    if (A[i, j] == 1 && A[j, i] == 1) out[[length(out) + 1]] <- c(vars[i], vars[j], "--")
-    else if (A[i, j] == 1)            out[[length(out) + 1]] <- c(vars[i], vars[j], "->")
-    else if (A[j, i] == 1)            out[[length(out) + 1]] <- c(vars[j], vars[i], "->")
+    a <- A[i, j]; b <- A[j, i]
+    if (a > 0 && b > 0) out[[length(out) + 1]] <- c(vars[i], vars[j], if (a == 1 && b == 1) "--" else "<->")
+    else if (a > 0)     out[[length(out) + 1]] <- c(vars[i], vars[j], "->")
+    else if (b > 0)     out[[length(out) + 1]] <- c(vars[j], vars[i], "->")
   }
   e <- as.data.frame(do.call(rbind, out), stringsAsFactors = FALSE)
   colnames(e) <- c("from", "to", "type"); e
 })
-cat("  edges:", nrow(edges_pc), "| of which oriented:", sum(edges_pc$type == "->"), "\n")
+cat("  edges:", nrow(edges_pc), "| oriented:", sum(edges_pc$type == "->"), "| conflict (<->):", sum(edges_pc$type == "<->"), "\n")
 
 # ======================================================================= MIIC
 # Like PC, but uses mutual information with a complexity penalty instead of significance tests;
@@ -93,7 +106,7 @@ nets <- list(ARACNE = edges_aracne, PC = edges_pc, MIIC = edges_miic)
 nets <- nets[!sapply(nets, is.null)]
 for (m in names(nets)) {
   nets[[m]]$rho <- round(rho[cbind(nets[[m]]$from, nets[[m]]$to)], 3)
-  write.csv(nets[[m]], paste0("results/networks/edges_", tolower(m), ".csv"), row.names = FALSE)
+  write.csv(nets[[m]], paste0(OUT_DIR, "/edges_", tolower(m), ".csv"), row.names = FALSE)
 }
 
 # ======================================================================= COMPARISON
@@ -104,7 +117,7 @@ comp <- data.frame(edge = all_keys, sapply(keys, function(k) all_keys %in% k), c
 ab <- do.call(rbind, strsplit(all_keys, " -- "))
 comp$rho <- round(rho[ab], 3)
 comp$n_methods <- rowSums(comp[, names(nets), drop = FALSE])
-write.csv(comp, "results/networks/edges_comparison.csv", row.names = FALSE)
+write.csv(comp, file.path(OUT_DIR, "edges_comparison.csv"), row.names = FALSE)
 
 cat("\nNumber of edges:\n"); print(sapply(keys, length))
 cat("\nEdge overlap between methods (Jaccard index = shared / union):\n")
@@ -140,14 +153,14 @@ if (all(c("PC", "MIIC") %in% names(nets))) {
 }
 
 # ======================================================================= PLOTS
-grp <- setNames(rep("reactive (data)", p), vars)
+grp <- setNames(rep("other", p), vars)
 grp[c("P2RY12","CX3CR1","TMEM119","CSF1R","P2RY13","SALL1","GPR34","OLFML3","HEXB","SELPLG","TGFBR1","SLC2A5","CST3")] <- "homeostatic"
 grp[c("TREM2","TYROBP","APOE","SPP1","GPNMB","CD74","HLA-DRA","C1QA","C1QB","CD163")] <- "disease response"
 grp[c("PLCG2","INPP5D","MS4A6A","PICALM","SORL1","BIN1","CD33","ABI3")] <- "AD risk"
 grp[c("SPI1","IRF8","MEF2C")] <- "TF"
 grp["CPS_Local"] <- "CPS"; grp["total_UMIs"] <- "technical"
 pal <- c(homeostatic = "#4C9BE8", "disease response" = "#E8833A", "AD risk" = "#5DBB63",
-         TF = "#9B6BD0", "reactive (data)" = "#F2C14E", CPS = "#D64545", technical = "#9E9E9E")
+         TF = "#9B6BD0", other = "#F2C14E", CPS = "#D64545", technical = "#9E9E9E")
 
 g_all <- graph_from_data_frame(ab, vertices = data.frame(name = vars), directed = FALSE)
 lay <- layout_with_fr(g_all)
@@ -163,12 +176,12 @@ plot_net <- function(e, title, file) {
   dev.off()
 }
 for (m in names(nets)) plot_net(nets[[m]], paste(m, "—", nrow(nets[[m]]), "edges"),
-                                paste0("results/networks/net_", tolower(m), ".png"))
+                                paste0(OUT_DIR, "/net_", tolower(m), ".png"))
 cons <- comp[comp$n_methods == length(nets), ]
 if (nrow(cons) > 0) {
   ce <- data.frame(do.call(rbind, strsplit(cons$edge, " -- ")), type = "--", rho = cons$rho)
   colnames(ce)[1:2] <- c("from", "to")
-  plot_net(ce, paste("Consensus of all methods —", nrow(ce), "edges"), "results/networks/net_consensus.png")
+  plot_net(ce, paste("Consensus of all methods —", nrow(ce), "edges"), file.path(OUT_DIR, "net_consensus.png"))
 }
-cat("\nPlots: results/networks/*.png (grey edges = positive association, red = negative)\n")
+cat("\nPlots:", file.path(OUT_DIR, "*.png"), "(grey edges = positive association, red = negative)\n")
 sink()

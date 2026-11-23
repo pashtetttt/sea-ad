@@ -6,3 +6,14 @@
 data/*
 !data/processed/
 data/processed/*.rds
+*.zip
+__MACOSX/
+# outdated report version
+report_before_fix.*
+# LaTeX build files
+*.aux
+*.log
+*.out
+# presentation exports
+Microglial gene networks*.pdf
+EOF

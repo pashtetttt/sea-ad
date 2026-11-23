@@ -1,0 +1,206 @@
+
+> # ---------------------------------------------------------------- Cache of all nuclei (48 genes)
+> cache <- "data/processed/nuclei_all_48genes.rds"
+
+> sel_genes <- read.csv("results/04_selected_genes.csv")$gene
+
+> if (!file.exists(cache)) {
++   cat("Building nucleus cache from the .h5ad (one time only)...\n")
++   source("R/read_h5ad.R")
++   path   <- "data/SEA ..." ... [TRUNCATED] 
+Building nucleus cache from the .h5ad (one time only)...
+  blocks read: 5 of 17 
+  blocks read: 10 of 17 
+  blocks read: 15 of 17 
+
+> nuc <- readRDS(cache)
+
+> cat("Nucleus pool:", nrow(nuc$G), "nuclei from", length(unique(nuc$info$donor)), "donors\n")
+Nucleus pool: 33344 nuclei from 83 donors
+
+> make_nuclei_table <- function(seed) {
++   set.seed(seed)
++   pick <- unlist(lapply(split(seq_len(nrow(nuc$G)), nuc$info$donor), function(r)
++     r[ .... [TRUNCATED] 
+
+> # CPS values reassigned between donors: each donor keeps one value, but a random other donor's
+> shuffle_cps <- function(df, donor, seed) {
++   set. .... [TRUNCATED] 
+
+> # ---------------------------------------------------------------- The three methods (as in 05)
+> run_aracne <- function(df) {
++   mim <- build.mim( .... [TRUNCATED] 
+
+> run_pc <- function(df) {
++   C <- 2 * sin(pi / 6 * cor(df, method = "spearman"))
++   fit <- pc(suffStat = list(C = C, n = nrow(df)), indepTest = gau .... [TRUNCATED] 
+
+> run_miic <- function(df) {
++   s <- miic(input_data = df, n_threads = max(1, parallel::detectCores() - 1))$summary
++   if ("type" %in% names(s)) s < .... [TRUNCATED] 
+
+> cps_nb <- function(e) sort(unique(c(e$to[e$from == "CPS_Local"], e$from[e$to == "CPS_Local"])))
+
+> runs <- list()
+
+> run_all <- function(df, variant, rep) {
++   for (m in c("ARACNE", "PC", "MIIC")) {
++     t0 <- Sys.time()
++     e  <- switch(m, ARACNE = run_aracne( .... [TRUNCATED] 
+
+> # ---------------------------------------------------------------- 1 + 2. Nuclei: real and shuffled CPS
+> cat("\n######## 1-2. SINGLE NUCLEI:", N_SE .... [TRUNCATED] 
+
+######## 1-2. SINGLE NUCLEI: 5 samples of 12 nuclei per donor ########
+
+> for (s in seq_len(N_SEEDS)) {
++   tab <- make_nuclei_table(1000 + s)
++   run_all(tab$df, "nuclei_real", s)
++   if (RUN_SHUFFLE_NUCLEI) run_all(shuff .... [TRUNCATED] 
+  nuclei_real        rep 1  ARACNE edges  56 | CPS neighbours  1: IQGAP2  (0.0 min)
+  nuclei_real        rep 1  PC     edges  93 | CPS neighbours  2: IQGAP2, PTPRG  (2.2 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 88
+  nuclei_real        rep 1  MIIC   edges  88 | CPS neighbours  2: IQGAP2, PTPRG  (0.1 min)
+  nuclei_shuffled    rep 1  ARACNE edges  55 | CPS neighbours  0:   (0.0 min)
+  nuclei_shuffled    rep 1  PC     edges  93 | CPS neighbours  2: GPNMB, SPP1  (1.4 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 86
+  nuclei_shuffled    rep 1  MIIC   edges  86 | CPS neighbours  0:   (0.1 min)
+  nuclei_real        rep 2  ARACNE edges  55 | CPS neighbours  2: BIN1, PTPRG  (0.0 min)
+  nuclei_real        rep 2  PC     edges  95 | CPS neighbours  4: BIN1, CDK14, PTPRG, TGFBI  (0.4 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 96
+  nuclei_real        rep 2  MIIC   edges  96 | CPS neighbours  2: BIN1, PTPRG  (0.1 min)
+  nuclei_shuffled    rep 2  ARACNE edges  53 | CPS neighbours  0:   (0.0 min)
+  nuclei_shuffled    rep 2  PC     edges  92 | CPS neighbours  1: CD83  (0.5 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 95
+  nuclei_shuffled    rep 2  MIIC   edges  95 | CPS neighbours  1: SPP1  (0.1 min)
+  nuclei_real        rep 3  ARACNE edges  59 | CPS neighbours  3: BIN1, PLXNC1, PTPRG  (0.0 min)
+  nuclei_real        rep 3  PC     edges 105 | CPS neighbours  3: APOE, IQGAP2, PTPRG  (0.7 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 101
+  nuclei_real        rep 3  MIIC   edges 101 | CPS neighbours  3: BIN1, PTPRG, SPP1  (0.1 min)
+  nuclei_shuffled    rep 3  ARACNE edges  57 | CPS neighbours  1: CD74  (0.0 min)
+  nuclei_shuffled    rep 3  PC     edges 103 | CPS neighbours  1: OLFML3  (1.9 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 100
+  nuclei_shuffled    rep 3  MIIC   edges 100 | CPS neighbours  2: CSF1R, CX3CR1  (0.7 min)
+  nuclei_real        rep 4  ARACNE edges  57 | CPS neighbours  3: DIRC3, IQGAP2, PTPRG  (0.0 min)
+  nuclei_real        rep 4  PC     edges  94 | CPS neighbours  4: DIRC3, IQGAP2, PTPRG, TPRG1  (3.2 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 90
+  nuclei_real        rep 4  MIIC   edges  90 | CPS neighbours  2: CD74, PTPRG  (0.7 min)
+  nuclei_shuffled    rep 4  ARACNE edges  55 | CPS neighbours  0:   (0.0 min)
+  nuclei_shuffled    rep 4  PC     edges  91 | CPS neighbours  0:   (3.5 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 88
+  nuclei_shuffled    rep 4  MIIC   edges  88 | CPS neighbours  0:   (0.7 min)
+  nuclei_real        rep 5  ARACNE edges  58 | CPS neighbours  2: IQGAP2, PTPRG  (0.0 min)
+  nuclei_real        rep 5  PC     edges  98 | CPS neighbours  2: IQGAP2, PTPRG  (1.9 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 90
+  nuclei_real        rep 5  MIIC   edges  90 | CPS neighbours  4: CD83, DIRC3, IQGAP2, PTPRG  (0.7 min)
+  nuclei_shuffled    rep 5  ARACNE edges  56 | CPS neighbours  0:   (0.0 min)
+  nuclei_shuffled    rep 5  PC     edges  96 | CPS neighbours  0:   (2.0 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 87
+  nuclei_shuffled    rep 5  MIIC   edges  87 | CPS neighbours  1: CD83  (0.8 min)
+
+> # ---------------------------------------------------------------- 3. Metacells: shuffled CPS
+> if (N_SHUFFLE_MC > 0) {
++   cat("\n######## 3. METAC ..." ... [TRUNCATED] 
+
+######## 3. METACELLS WITH SHUFFLED CPS ########
+  metacells_shuffled rep 1  ARACNE edges  73 | CPS neighbours  3: CD83, CST3, MS4A6A  (0.0 min)
+  metacells_shuffled rep 1  PC     edges 104 | CPS neighbours  3: CD83, CST3, MS4A6A  (0.4 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 108
+  metacells_shuffled rep 1  MIIC   edges 108 | CPS neighbours 18: APOE, BIN1, C1QB, CD163, CD74, CD83, CSF1R, DIRC3, FAM20A, MS4A6A, P2RY12, PICALM, PLCG2, SELPLG, SLC2A5, SORL1, SPP1, TGFBR1  (7.2 min)
+  metacells_shuffled rep 2  ARACNE edges  72 | CPS neighbours  2: C1QB, SELPLG  (0.1 min)
+  metacells_shuffled rep 2  PC     edges 101 | CPS neighbours  0:   (0.4 min)
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 110
+  metacells_shuffled rep 2  MIIC   edges 110 | CPS neighbours 18: APOE, BIN1, C1QB, CD163, CD83, CSF1R, CX3CR1, FAM20A, GPR34, MS4A6A, P2RY12, P2RY13, PICALM, PLCG2, SLC2A5, SORL1, SPP1, ZNF804A  (6.8 min)
+
+> # ---------------------------------------------------------------- Summary
+> res <- do.call(rbind, runs)
+
+> write.csv(res, "results/06b_cps_stability_runs.csv", row.names = FALSE)
+
+> cat("\n######## SUMMARY: number of CPS neighbours (excluding total_UMIs) ########\n")
+
+######## SUMMARY: number of CPS neighbours (excluding total_UMIs) ########
+
+> cat("Reference (05): metacells real CPS -> ARACNE 1, PC 0, MIIC 18 (+ total_UMIs)\n\n")
+Reference (05): metacells real CPS -> ARACNE 1, PC 0, MIIC 18 (+ total_UMIs)
+
+
+> print(aggregate(n_cps_neighbours ~ variant + method, res, function(x)
++   c(mean = round(mean(x), 1), min = min(x), max = max(x))))
+             variant method n_cps_neighbours.mean n_cps_neighbours.min n_cps_neighbours.max
+1 metacells_shuffled ARACNE                   2.5                  2.0                  3.0
+2        nuclei_real ARACNE                   2.2                  1.0                  3.0
+3    nuclei_shuffled ARACNE                   0.2                  0.0                  1.0
+4 metacells_shuffled   MIIC                  18.0                 18.0                 18.0
+5        nuclei_real   MIIC                   2.6                  2.0                  4.0
+6    nuclei_shuffled   MIIC                   0.8                  0.0                  2.0
+7 metacells_shuffled     PC                   1.5                  0.0                  3.0
+8        nuclei_real     PC                   3.0                  2.0                  4.0
+9    nuclei_shuffled     PC                   0.8                  0.0                  2.0
+
+> cat("\nHow often each gene is a CPS neighbour across the", N_SEEDS, "real nucleus samples:\n")
+
+How often each gene is a CPS neighbour across the 5 real nucleus samples:
+
+> real <- res[res$variant == "nuclei_real", ]
+
+> for (m in c("ARACNE", "PC", "MIIC")) {
++   g <- unlist(strsplit(real$cps_neighbours[real$method == m], ", "))
++   f <- sort(table(g[g != ""]), decre .... [TRUNCATED] 
+  ARACNE PTPRG 4/5, IQGAP2 3/5, BIN1 2/5, DIRC3 1/5, PLXNC1 1/5
+  PC     PTPRG 5/5, IQGAP2 4/5, APOE 1/5, BIN1 1/5, CDK14 1/5, DIRC3 1/5, TGFBI 1/5, TPRG1 1/5
+  MIIC   PTPRG 5/5, BIN1 2/5, IQGAP2 2/5, CD74 1/5, CD83 1/5, DIRC3 1/5, SPP1 1/5
+
+> cat("\nSaved: results/06b_cps_stability_runs.csv\n")
+
+Saved: results/06b_cps_stability_runs.csv
+
+> sink()

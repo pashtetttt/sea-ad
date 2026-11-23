@@ -1,0 +1,97 @@
+Input: data/processed/network_dataset_nuclei_lit.csv 
+Data: 996 rows x 75 variables
+
+######## ARACNE ########
+  MI threshold: 0.00539 (corresponds to |rho| ~ 0.104 )
+  time: 0.01 min
+  edges: 79 
+
+######## PC ########
+  adjacency values: 0:5354  1:53  2:218 
+  time: 30.74 min
+  edges: 160 | oriented: 49 | conflict (<->): 109 
+
+######## MIIC ########
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 135
+  time: 0.53 min
+  edges: 135 | oriented: 24 | with a possible latent cause (<->): 4 
+
+######## METHOD COMPARISON ########
+
+Number of edges:
+ARACNE     PC   MIIC 
+    79    160    135 
+
+Edge overlap between methods (Jaccard index = shared / union):
+       ARACNE   PC MIIC
+ARACNE   1.00 0.24 0.47
+PC       0.24 1.00 0.34
+MIIC     0.47 0.34 1.00
+
+Edges found by all methods: 42 
+                  edge   rho
+           APOE -- B2M 0.461
+          APOE -- C1QB 0.472
+          APOE -- CD74 0.501
+          APOE -- CD81 0.438
+          APOE -- CST3 0.433
+          APOE -- CTSD 0.336
+    ATG7 -- total_UMIs 0.568
+       ATG7 -- ZNF804A 0.278
+          C1QA -- C1QB 0.482
+        CADM1 -- DOP1B 0.171
+      CD74 -- HLA-DRB5 0.353
+    CD74 -- total_UMIs 0.528
+        CHST11 -- JAK3 0.397
+  CHST11 -- total_UMIs 0.752
+     CPS_Local -- CTSD 0.201
+    CPS_Local -- PTPRG 0.129
+         CTSD -- GPNMB 0.233
+   DOCK2 -- total_UMIs 0.728
+      FCGR1B -- TGFBR1 0.287
+        FKBP5 -- NHSL1 0.396
+   FKBP5 -- total_UMIs 0.674
+       FKBP5 -- ZBTB16 0.519
+       FPR3 -- ZNF804A 0.214
+    GNAQ -- total_UMIs 0.764
+      GPNMB -- STARD13 0.303
+   IFI16 -- total_UMIs 0.593
+        KCNJ5 -- TANC2 0.230
+   MAML3 -- total_UMIs 0.691
+   MEF2A -- total_UMIs 0.789
+   MEF2C -- total_UMIs 0.738
+ MTHFD1L -- total_UMIs 0.602
+  NFATC2 -- total_UMIs 0.572
+        NLGN1 -- PLCB1 0.179
+   PARVG -- total_UMIs 0.405
+  PICALM -- total_UMIs 0.753
+         PLCB1 -- RYR2 0.208
+   SNX29 -- total_UMIs 0.600
+        SNX29 -- WIPF3 0.203
+    TAB2 -- total_UMIs 0.686
+   TANC2 -- total_UMIs 0.568
+  TBC1D5 -- total_UMIs 0.681
+      TPRG1 -- ZNF804A 0.245
+
+Neighbours of CPS_Local :
+  ARACNE  ( 2): CTSD (0.2), PTPRG (0.13)
+  PC      ( 4): CTSD (0.2), DSCAM (0.13), NLGN1 (-0.1), PTPRG (0.13)
+  MIIC    ( 2): CTSD (0.2), PTPRG (0.13)
+
+Neighbours of total_UMIs :
+  ARACNE  (48): ABCA1 (0.39), ATG7 (0.57), CD74 (0.53), CHST11 (0.75), CSF1R (0.63), CTSC (0.43), CTSS (0.39), DOCK2 (0.73), DOP1B (0.29), DSCAM (0.27), FCGR2A (0.44), FCGR3A (0.42), FKBP5 (0.67), FPR3 (0.24), GNAQ (0.76), IFI16 (0.59), IKZF1 (0.58), IRF1 (0.17), IRF7 (0.19), ITPR2 (0.74), LIPA (0.3), LRRK2 (0.41), LY86 (0.54), MAF (0.5), MAML3 (0.69), MEF2A (0.79), MEF2C (0.74), MGLL (0.23), MITF (0.4), MTHFD1L (0.6), NAV3 (0.55), NFATC2 (0.57), NINJ1 (0.23), PARVG (0.41), PICALM (0.75), PLCB1 (0.17), PRKAG2 (0.47), RALGAPA2 (0.55), RASGRP3 (0.22), RUNX1 (0.65), SNX29 (0.6), STAB1 (0.31), STARD13 (0.29), TAB2 (0.69), TANC2 (0.57), TBC1D16 (0.31), TBC1D5 (0.68), TGFBR1 (0.53)
+  PC      (18): ATG7 (0.57), CD74 (0.53), CHST11 (0.75), DOCK2 (0.73), FKBP5 (0.67), GNAQ (0.76), IFI16 (0.59), MAML3 (0.69), MEF2A (0.79), MEF2C (0.74), MTHFD1L (0.6), NFATC2 (0.57), PARVG (0.41), PICALM (0.75), SNX29 (0.6), TAB2 (0.69), TANC2 (0.57), TBC1D5 (0.68)
+  MIIC    (51): ABCA1 (0.39), ATG7 (0.57), C1QB (0.46), CD74 (0.53), CHST11 (0.75), CSF1R (0.63), CTSC (0.43), CTSS (0.39), DOCK2 (0.73), DOP1B (0.29), DSCAM (0.27), FCGR1A (0.27), FCGR1B (0.27), FCGR2A (0.44), FCGR3A (0.42), FKBP5 (0.67), FPR3 (0.24), GLDN (0.35), GNAQ (0.76), IFI16 (0.59), IKZF1 (0.58), IRF7 (0.19), ITPR2 (0.74), LIPA (0.3), LRRK2 (0.41), LY86 (0.54), MAF (0.5), MAML3 (0.69), MEF2A (0.79), MEF2C (0.74), MITF (0.4), MTHFD1L (0.6), NAV3 (0.55), NFATC2 (0.57), PARVG (0.41), PICALM (0.75), PLCB1 (0.17), PRKAG2 (0.47), RALGAPA2 (0.55), RASGRP3 (0.22), RUNX1 (0.65), RYR2 (0.17), SAMD4A (0.29), SNX29 (0.6), STAB1 (0.31), TAB2 (0.69), TANC2 (0.57), TBC1D16 (0.31), TBC1D5 (0.68), TGFBR1 (0.53), ZBTB16 (0.4)
+
+Hubs — 10 nodes with the most connections (excluding total_UMIs):
+  ARACNE  APOE=6, ATG7=4, PTPRG=4, CD74=3, CTSD=3, FKBP5=3, PLCB1=3, TGFBR1=3, ZNF804A=3, C1QB=2
+  PC      C1QB=9, NHSL1=8, TANC2=8, APOE=7, CD74=7, NAV3=7, CD81=6, DOCK2=6, FCGR1A=6, FKBP5=6
+  MIIC    C1QB=10, APOE=7, GPNMB=7, STARD13=6, TANC2=6, ATG7=5, CD74=5, DOCK2=5, DOP1B=5, NHSL1=5
+
+Orientation: edges oriented in both PC and MIIC: 3 | of which in the same direction: 1 
+
+Plots: results/networks_lit_nuclei/*.png (grey edges = positive association, red = negative)

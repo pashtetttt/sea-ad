@@ -1,0 +1,87 @@
+source,gene,status,detect_metacells,rho_CPS_cpm,logFC_reactive_vs_homeo
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",LINC02698,too sparse,0.317,0.189,2.003
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",PTPRG,IN OUR 48,1.0,0.439,1.352
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",TRHDE,passes 80% filter,0.933,0.156,1.049
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",AC131956.2,too sparse,0.337,0.153,1.241
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",CADM1,passes 80% filter,0.999,0.255,0.972
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",TPRG1,IN OUR 48,0.952,0.171,2.184
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",WIPF3,passes 80% filter,0.949,0.235,0.763
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",PARVG,passes 80% filter,1.0,0.117,0.358
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",RALGAPA2,passes 80% filter,1.0,0.219,0.322
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",KCNJ5,passes 80% filter,0.965,0.125,0.707
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",MGLL,passes 80% filter,1.0,0.074,0.264
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",FPR3,passes 80% filter,0.975,0.148,0.863
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",ZNF804A,IN OUR 48,0.999,0.225,1.22
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",SLC47A1,too sparse,0.739,0.092,1.214
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",AL138756.1,too sparse,0.749,0.032,1.214
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",DSCAM,passes 80% filter,1.0,0.235,0.168
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",SAMD4A,passes 80% filter,1.0,0.114,0.635
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",LIPA,passes 80% filter,1.0,-0.075,0.547
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",NHSL1,passes 80% filter,1.0,0.303,0.489
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",RASGRP3,passes 80% filter,0.996,0.148,0.727
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",TBC1D16,passes 80% filter,1.0,0.147,0.299
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",TANC2,passes 80% filter,1.0,0.277,0.469
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",ATG7,passes 80% filter,1.0,0.177,0.565
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",DOP1B,passes 80% filter,1.0,0.132,0.457
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",SNX29,passes 80% filter,1.0,-0.013,0.109
+"Gabitto: DAM (Micro-PVM_3) markers, Fig 6c",GLDN,passes 80% filter,1.0,0.1,0.476
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),IL1B,too sparse,0.671,-0.099,-0.471
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),CSF1R,IN OUR 48,1.0,0.029,-0.422
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),STAB1,passes 80% filter,0.999,-0.066,0.339
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),NINJ1,passes 80% filter,1.0,0.17,-0.002
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),JAK3,passes 80% filter,0.999,-0.062,-0.162
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),IRF1,passes 80% filter,0.875,0.165,0.182
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),IRF7,passes 80% filter,0.835,0.081,0.387
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),IFI16,passes 80% filter,1.0,0.035,-0.126
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),FCGR1A,passes 80% filter,0.996,-0.023,-0.125
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),FCGR1B,passes 80% filter,0.99,-0.066,-0.142
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),FCGR2A,passes 80% filter,1.0,-0.097,0.114
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),FCGR3B,too sparse,0.291,-0.092,-0.296
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),CD74,IN OUR 48,1.0,0.19,-0.294
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),HLA-DRB5,passes 80% filter,0.965,-0.111,-0.217
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),C1QA,IN OUR 48,1.0,0.092,-0.31
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),C1QB,IN OUR 48,1.0,0.087,-0.183
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),CTSC,passes 80% filter,1.0,0.081,-0.109
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),LY86,passes 80% filter,1.0,-0.094,-0.176
+Gabitto: early CPS up (inflammation/IFN/Fc/MHC-II/complement/plaque),FCGR3A,passes 80% filter,1.0,-0.167,-0.427
+Gabitto: late CPS up (plaque-induced),CTSD,passes 80% filter,0.998,0.331,0.809
+Gabitto: late CPS up (plaque-induced),CTSS,passes 80% filter,1.0,0.106,0.058
+Gabitto: late CPS up (plaque-induced),LYZ,too sparse,0.458,0.187,0.546
+Gabitto: late CPS up (plaque-induced),APOE,IN OUR 48,1.0,0.234,0.205
+Gabitto: microglial TFs up early (GRN),RUNX1,passes 80% filter,1.0,0.002,-0.15
+Gabitto: microglial TFs up early (GRN),IKZF1,passes 80% filter,1.0,-0.086,-0.122
+Gabitto: microglial TFs up early (GRN),NFATC2,passes 80% filter,1.0,-0.203,-0.107
+Gabitto: microglial TFs up early (GRN),MAF,passes 80% filter,1.0,0.091,-0.252
+"Adeoye MTG MIC-M2 (up in AD, DAM)",APOE,IN OUR 48,1.0,0.234,0.205
+"Adeoye MTG MIC-M2 (up in AD, DAM)",B2M,passes 80% filter,1.0,0.012,0.006
+"Adeoye MTG MIC-M2 (up in AD, DAM)",CST3,IN OUR 48,1.0,0.138,-0.393
+"Adeoye MTG MIC-M2 (up in AD, DAM)",CD81,passes 80% filter,1.0,0.248,0.013
+"Adeoye MTG MIC-M2 (up in AD, DAM)",RPS27A,passes 80% filter,0.998,-0.004,-0.081
+"Adeoye MTG MIC-M2 (up in AD, DAM)",RPS15,passes 80% filter,1.0,0.034,-0.077
+"Adeoye MTG MIC-M2 (up in AD, DAM)",RPS19,passes 80% filter,1.0,0.179,-0.043
+"Adeoye MTG MIC-M2 (up in AD, DAM)",RPS28,passes 80% filter,1.0,0.146,0.033
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),GPNMB,IN OUR 48,0.845,0.19,2.249
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),LRRK2,passes 80% filter,1.0,0.203,0.124
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),MITF,passes 80% filter,1.0,0.25,0.79
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),ABCA1,passes 80% filter,1.0,0.06,0.382
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),STARD13,passes 80% filter,1.0,0.244,0.897
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),ZBTB16,passes 80% filter,1.0,0.188,0.132
+Adeoye MTG MIC-M5 (lipid/immune; only DEG-enriched module),PRKAG2,passes 80% filter,1.0,0.162,0.236
+Adeoye MTG MIC-M4 (activation),PICALM,IN OUR 48,1.0,0.033,-0.308
+Adeoye MTG MIC-M4 (activation),DOCK2,passes 80% filter,1.0,-0.077,0.047
+Adeoye MTG MIC-M4 (activation),TAB2,passes 80% filter,1.0,0.054,-0.034
+Adeoye MTG MIC-M1 (down in AD),NLGN1,passes 80% filter,1.0,-0.0,-0.037
+Adeoye MTG MIC-M1 (down in AD),RYR2,passes 80% filter,1.0,-0.016,-0.041
+Adeoye MTG MIC-M1 (down in AD),PLCB1,passes 80% filter,1.0,0.009,-0.01
+Adeoye shared microglia hubs (SFG/ETC; cross-region),CHST11,passes 80% filter,1.0,-0.161,-0.083
+Adeoye shared microglia hubs (SFG/ETC; cross-region),FKBP5,passes 80% filter,1.0,0.227,-0.027
+Adeoye shared microglia hubs (SFG/ETC; cross-region),GNAQ,passes 80% filter,1.0,0.028,0.042
+Adeoye shared microglia hubs (SFG/ETC; cross-region),ITPR2,passes 80% filter,1.0,-0.11,-0.438
+Adeoye shared microglia hubs (SFG/ETC; cross-region),LINGO1,too sparse,0.722,0.002,0.115
+Adeoye shared microglia hubs (SFG/ETC; cross-region),MEF2A,passes 80% filter,1.0,-0.052,-0.213
+Adeoye shared microglia hubs (SFG/ETC; cross-region),MEF2C,IN OUR 48,1.0,-0.174,-0.29
+Adeoye shared microglia hubs (SFG/ETC; cross-region),NAV3,passes 80% filter,1.0,-0.22,-0.648
+Adeoye shared microglia hubs (SFG/ETC; cross-region),TBC1D5,passes 80% filter,1.0,0.147,-0.015
+Adeoye shared microglia hubs (SFG/ETC; cross-region),MAML3,passes 80% filter,1.0,0.099,-0.17
+Adeoye shared microglia hubs (SFG/ETC; cross-region),MTHFD1L,passes 80% filter,1.0,-0.036,-0.035
+Adeoye shared microglia hubs (SFG/ETC; cross-region),TGFBR1,IN OUR 48,1.0,-0.197,0.176

@@ -1,0 +1,92 @@
+Input: data/processed/network_dataset_nuclei.csv 
+Data: 996 rows x 50 variables
+
+######## ARACNE ########
+  MI threshold: 0.00551 (corresponds to |rho| ~ 0.105 )
+  time: 0.01 min
+  edges: 57 
+
+######## PC ########
+  adjacency values: 0:2342  1:30  2:128 
+  time: 0.88 min
+  edges: 93 | oriented: 28 | conflict (<->): 64 
+
+######## MIIC ########
+Search all pairs for unconditional independence relations...
+Search for candidate separating nodes...
+Search for conditional independence relations...
+Search for edge directions...
+Number of edges: 84
+  time: 0.13 min
+  edges: 84 | oriented: 8 | with a possible latent cause (<->): 0 
+
+######## METHOD COMPARISON ########
+
+Number of edges:
+ARACNE     PC   MIIC 
+    57     93     84 
+
+Edge overlap between methods (Jaccard index = shared / union):
+       ARACNE   PC MIIC
+ARACNE   1.00 0.36 0.58
+PC       0.36 1.00 0.45
+MIIC     0.58 0.45 1.00
+
+Edges found by all methods: 37 
+                 edge   rho
+         APOE -- C1QA 0.483
+         APOE -- C1QB 0.487
+         APOE -- CD74 0.492
+         APOE -- CST3 0.482
+       APOE -- TYROBP 0.342
+      CD163 -- FAM20A 0.196
+      CD163 -- PLXNC1 0.267
+       CD163 -- TGFBI 0.314
+  CD163 -- total_UMIs 0.323
+       CD163 -- TPRG1 0.315
+     CD163 -- ZNF804A 0.246
+      CD74 -- HLA-DRA 0.564
+   CD74 -- total_UMIs 0.488
+        CD83 -- DIRC3 0.150
+   CPS_Local -- PTPRG 0.123
+   CPS_Local -- TGFBI 0.159
+  CSF1R -- total_UMIs 0.604
+      CX3CR1 -- GPR34 0.315
+     CX3CR1 -- P2RY12 0.358
+      DIRC3 -- IQGAP2 0.183
+    FGR -- total_UMIs 0.213
+      GAS2L3 -- GPNMB 0.178
+      GPNMB -- IQGAP2 0.249
+       GPNMB -- PLIN2 0.164
+       GPNMB -- PTPRG 0.141
+     GPNMB -- ZNF804A 0.194
+ INPP5D -- total_UMIs 0.614
+      MEF2C -- P2RY12 0.401
+  MEF2C -- total_UMIs 0.692
+      P2RY12 -- SALL1 0.201
+     PICALM -- SELPLG 0.240
+ PICALM -- total_UMIs 0.743
+  PLCG2 -- total_UMIs 0.649
+ SLC2A5 -- total_UMIs 0.436
+  SORL1 -- total_UMIs 0.670
+   SPI1 -- total_UMIs 0.359
+ TGFBR1 -- total_UMIs 0.507
+
+Neighbours of CPS_Local :
+  ARACNE  ( 2): PTPRG (0.12), TGFBI (0.16)
+  PC      ( 2): PTPRG (0.12), TGFBI (0.16)
+  MIIC    ( 2): PTPRG (0.12), TGFBI (0.16)
+
+Neighbours of total_UMIs :
+  ARACNE  (26): ABI3 (0.27), BIN1 (0.32), CD163 (0.32), CD33 (0.19), CD74 (0.49), CSF1R (0.6), FGR (0.21), GAS2L3 (0.18), GPR34 (0.35), HEXB (0.24), INPP5D (0.61), IQGAP2 (0.22), IRF8 (0.31), MEF2C (0.69), MS4A6A (0.42), P2RY13 (0.23), PICALM (0.74), PLCG2 (0.65), PLIN2 (0.19), SLC2A5 (0.44), SORL1 (0.67), SPI1 (0.36), SPP1 (0.32), TBC1D2 (0.16), TGFBR1 (0.51), TMEM119 (0.25)
+  PC      (13): CD163 (0.32), CD74 (0.49), CSF1R (0.6), FGR (0.21), INPP5D (0.61), MEF2C (0.69), PICALM (0.74), PLCG2 (0.65), PLXNC1 (0.24), SLC2A5 (0.44), SORL1 (0.67), SPI1 (0.36), TGFBR1 (0.51)
+  MIIC    (29): ABI3 (0.27), BIN1 (0.32), C1QB (0.44), CD163 (0.32), CD33 (0.19), CD74 (0.49), CSF1R (0.6), DIRC3 (0.15), FAM20A (0.19), FGR (0.21), GAS2L3 (0.18), GPR34 (0.35), HEXB (0.24), INPP5D (0.61), IQGAP2 (0.22), IRF8 (0.31), MEF2C (0.69), MS4A6A (0.42), P2RY12 (0.38), P2RY13 (0.23), PICALM (0.74), PLCG2 (0.65), PLIN2 (0.19), SLC2A5 (0.44), SORL1 (0.67), SPI1 (0.36), SPP1 (0.32), TBC1D2 (0.16), TGFBR1 (0.51)
+
+Hubs — 10 nodes with the most connections (excluding total_UMIs):
+  ARACNE  APOE=6, CD163=6, GPNMB=5, ZNF804A=4, CD74=3, CD83=3, DIRC3=3, IQGAP2=3, P2RY12=3, PLIN2=3
+  PC      CD163=8, P2RY12=8, SPP1=8, APOE=7, CX3CR1=7, CD74=6, CSF1R=6, CST3=6, GPNMB=6, ZNF804A=6
+  MIIC    APOE=8, CD163=8, GPNMB=8, CD74=7, CST3=6, C1QB=5, DIRC3=5, TYROBP=5, CX3CR1=4, IQGAP2=4
+
+Orientation: edges oriented in both PC and MIIC: 2 | of which in the same direction: 2 
+
+Plots: results/networks_nuclei/*.png (grey edges = positive association, red = negative)

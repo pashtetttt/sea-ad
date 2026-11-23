@@ -1,0 +1,76 @@
+
+Number of edges:
+      MIIC_raw MIIC_metacells 
+           111            111 
+
+Edge overlap between MIIC_raw and MIIC_metacells (Jaccard index = shared / union):
+  Jaccard: 0.29 
+
+Edges found by both MIIC_raw and MIIC_metacells: 50 
+                  edge rho_raw rho_metacells
+    ABI3 -- total_UMIs   0.186         0.505
+          APOE -- C1QA   0.323         0.618
+          APOE -- CST3   0.313         0.638
+         APOE -- TREM2   0.187         0.484
+        APOE -- TYROBP   0.214         0.595
+     BIN1 -- CPS_Local  -0.169        -0.203
+         BIN1 -- CSF1R   0.301         0.443
+        BIN1 -- TGFBR1   0.360         0.667
+          C1QA -- C1QB   0.420         0.809
+          C1QA -- CST3   0.306         0.598
+    CD163 -- CPS_Local   0.067         0.048
+       CD163 -- FAM20A   0.234         0.647
+       CD163 -- MS4A6A   0.248         0.518
+       CD163 -- PLXNC1   0.255         0.574
+        CD163 -- TGFBI   0.335         0.588
+    CD33 -- total_UMIs   0.119         0.366
+     CD74 -- CPS_Local   0.016         0.198
+          CD74 -- CST3   0.327         0.611
+       CD74 -- HLA-DRA   0.483         0.825
+     CD83 -- CPS_Local  -0.028        -0.137
+         CD83 -- GPNMB   0.165         0.229
+          CD83 -- SPP1   0.100         0.116
+        CDK14 -- GPNMB   0.152         0.334
+        CDK14 -- PTPRG   0.097         0.423
+   CPS_Local -- FAM20A  -0.093        -0.084
+   CPS_Local -- P2RY12  -0.154         0.007
+    CPS_Local -- PLCG2  -0.173         0.001
+    CPS_Local -- PTPRG   0.200         0.435
+    CPS_Local -- SORL1  -0.119         0.002
+     CPS_Local -- SPP1   0.046        -0.002
+       CSF1R -- INPP5D   0.468         0.693
+       CSF1R -- SELPLG   0.177         0.572
+      CSF1R -- TMEM119   0.101         0.522
+      CX3CR1 -- P2RY12   0.420         0.753
+       CX3CR1 -- PLIN2  -0.156        -0.322
+      FAM20A -- SELPLG  -0.145        -0.446
+       GAS2L3 -- GPNMB   0.129         0.349
+       GPNMB -- IQGAP2   0.278         0.590
+       GPR34 -- P2RY12   0.258         0.658
+    HEXB -- total_UMIs   0.123         0.546
+       INPP5D -- SORL1   0.550         0.748
+  INPP5D -- total_UMIs   0.663         0.756
+   MEF2C -- total_UMIs   0.650         0.784
+       MS4A6A -- PLCG2   0.287         0.694
+  MS4A6A -- total_UMIs   0.333         0.667
+  PICALM -- total_UMIs   0.609         0.764
+   PLCG2 -- total_UMIs   0.467         0.735
+  SLC2A5 -- total_UMIs   0.408         0.502
+    SPI1 -- total_UMIs   0.324         0.722
+ total_UMIs -- ZNF804A   0.097         0.475
+
+Neighbours of CPS_Local :
+  MIIC_raw        (12): BIN1 (-0.17), CD163 (0.07), CD74 (0.02), CD83 (-0.03), FAM20A (-0.09), FGR (0.09), P2RY12 (-0.15), PLCG2 (-0.17), PLXNC1 (0.14), PTPRG (0.2), SORL1 (-0.12), SPP1 (0.05)
+  MIIC_metacells  (19): APOE (0.24), BIN1 (-0.2), C1QB (0.1), CD163 (0.05), CD74 (0.2), CD83 (-0.14), CSF1R (0.08), CX3CR1 (-0.04), FAM20A (-0.08), GPR34 (0.13), MS4A6A (0.04), P2RY12 (0.01), PICALM (0.07), PLCG2 (0), PTPRG (0.44), SLC2A5 (-0.14), SORL1 (0), SPP1 (0), total_UMIs (0.07)
+
+Neighbours of total_UMIs :
+  MIIC_raw        (19): ABI3 (0.19), C1QB (0.12), CD33 (0.12), CIRBP (0.16), CSF1R (0.52), HEXB (0.12), INPP5D (0.66), IRF8 (0.24), MEF2C (0.65), MS4A6A (0.33), PICALM (0.61), PLCG2 (0.47), PLXNC1 (0.12), SLC2A5 (0.41), SORL1 (0.58), SPI1 (0.32), TBC1D2 (0.1), TGFBR1 (0.46), ZNF804A (0.1)
+  MIIC_metacells  (12): ABI3 (0.5), CD33 (0.37), CPS_Local (0.07), HEXB (0.55), INPP5D (0.76), MEF2C (0.78), MS4A6A (0.67), PICALM (0.76), PLCG2 (0.74), SLC2A5 (0.5), SPI1 (0.72), ZNF804A (0.48)
+
+Hubs — top 10 nodes with the most connections (excluding total_UMIs):
+  MIIC_raw        CPS_Local=12, APOE=11, GPNMB=11, CD163=10, CX3CR1=9, BIN1=7, C1QA=7, C1QB=7, CD74=7, CSF1R=7
+  MIIC_metacells  CPS_Local=19, CSF1R=11, CD163=10, CD74=8, TPRG1=8, P2RY12=7, APOE=6, GPNMB=6, SELPLG=6, SPP1=6
+
+Orientation: edges oriented in both MIIC_raw and MIIC_metacells: 5 | of which in the same direction: 3 
+
+Comparison outputs saved in: results/miic_met_vs_raw_lowzero_nuclei 

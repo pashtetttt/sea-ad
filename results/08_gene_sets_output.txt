@@ -1,0 +1,80 @@
+######## SET lit ########
+Genes listed in the papers: 81 | in our data: 81 | pass the detection filter: 73 
+Dropped as too sparse: LINC02698 AC131956.2 SLC47A1 AL138756.1 IL1B FCGR3B LYZ LINGO1 
+
+######## SET data ########
+Pool: 9006 genes | taking the 60 with the highest within-donor variability
+     gene detect share_within_donor in_lit_set
+    TPRG1  0.952               0.59       TRUE
+   CERNA2  0.801               0.57      FALSE
+    GPNMB  0.845               0.63       TRUE
+     CD83  0.889               0.50      FALSE
+    DIRC3  0.982               0.48      FALSE
+   CCDC26  0.972               0.26      FALSE
+    SUGCT  0.939               0.89      FALSE
+     FLT1  0.935               0.50      FALSE
+     CPA6  0.936               0.43      FALSE
+   TENT5A  0.927               0.77      FALSE
+   IQGAP2  0.980               0.59      FALSE
+     HRH1  0.857               0.72      FALSE
+    PTH2R  0.892               0.76      FALSE
+  TMEM182  0.923               0.89      FALSE
+    EPHB1  0.869               0.93      FALSE
+  COL25A1  0.868               0.85      FALSE
+    CGNL1  0.879               0.50      FALSE
+   PLCXD3  0.908               0.58      FALSE
+    CD163  0.967               0.24      FALSE
+      CA8  0.898               0.30      FALSE
+ CATSPERE  0.883               0.87      FALSE
+     MCF2  0.879               0.89      FALSE
+ C12orf42  0.827               0.48      FALSE
+    PLAC8  0.882               0.46      FALSE
+     DEC1  0.905               0.79      FALSE
+ ADAMTS17  0.967               0.48      FALSE
+   GPR183  0.966               0.47      FALSE
+     MGAM  0.868               0.47      FALSE
+     TSHR  0.936               0.57      FALSE
+   FAM20A  0.819               0.36      FALSE
+   GAS2L3  0.820               0.89      FALSE
+   MS4A4E  0.928               0.47      FALSE
+  ALDH1A2  0.874               0.73      FALSE
+    PTPRG  1.000               0.46       TRUE
+    DOCK1  0.900               0.64      FALSE
+   FLVCR2  0.949               0.54      FALSE
+   NEXMIF  0.973               0.76      FALSE
+   IFI44L  0.974               0.34      FALSE
+  CD163L1  0.951               0.26      FALSE
+     RFC3  0.967               0.81      FALSE
+     PLS1  0.882               0.72      FALSE
+     MT2A  0.882               0.67      FALSE
+   MFHAS1  0.975               0.91      FALSE
+      MCC  0.869               0.87      FALSE
+    CLIC4  0.921               0.67      FALSE
+   SLC7A1  0.902               0.57      FALSE
+     ST18  0.884               0.65      FALSE
+  PLEKHG1  0.834               0.65      FALSE
+  LDLRAD3  0.802               0.73      FALSE
+  SCGB2B2  0.846               0.88      FALSE
+  ZNF804A  0.999               0.58       TRUE
+    NEDD4  0.894               0.81      FALSE
+     HAMP  0.962               0.24      FALSE
+     IL15  0.963               0.43      FALSE
+    GRID2  1.000               0.33      FALSE
+     PDK4  0.978               0.25      FALSE
+   BTBD11  0.815               0.74      FALSE
+    FRMD3  0.982               0.79      FALSE
+   CLEC5A  0.918               0.40      FALSE
+  TMEM163  0.993               0.18      FALSE
+
+Share of variance within donors: median 0.58 (1 = all variability is between metacells of the same person, 0 = only between people)
+Overlap with the lit set: 4 genes
+
+Saved network_dataset_lit : 983 rows x 75 variables
+Saved network_dataset_data : 983 rows x 62 variables
+
+Reading nuclei from the .h5ad for 129 genes (one time only)...
+  blocks read: 5 of 17 
+  blocks read: 10 of 17 
+  blocks read: 15 of 17 
+Saved network_dataset_nuclei_lit : 996 rows x 75 variables
+Saved network_dataset_nuclei_data : 996 rows x 62 variables

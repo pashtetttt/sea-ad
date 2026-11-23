@@ -1,0 +1,142 @@
+"set","gene","source","detect","selected"
+"lit","PTPRG","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","TRHDE","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.933,TRUE
+"lit","CADM1","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.999,TRUE
+"lit","TPRG1","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.952,TRUE
+"lit","WIPF3","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.949,TRUE
+"lit","PARVG","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","RALGAPA2","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","KCNJ5","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.965,TRUE
+"lit","MGLL","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","FPR3","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.975,TRUE
+"lit","ZNF804A","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.999,TRUE
+"lit","DSCAM","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","SAMD4A","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","LIPA","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","NHSL1","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","RASGRP3","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.996,TRUE
+"lit","TBC1D16","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","TANC2","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","ATG7","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","DOP1B","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","SNX29","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","GLDN","Gabitto Fig6c: DAM (Micro-PVM_3) markers",1,TRUE
+"lit","LINC02698","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.317,FALSE
+"lit","AC131956.2","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.337,FALSE
+"lit","SLC47A1","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.739,FALSE
+"lit","AL138756.1","Gabitto Fig6c: DAM (Micro-PVM_3) markers",0.749,FALSE
+"lit","IL1B","Gabitto Fig6d: up early along CPS",0.671,FALSE
+"lit","CSF1R","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","STAB1","Gabitto Fig6d: up early along CPS",0.999,TRUE
+"lit","NINJ1","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","JAK3","Gabitto Fig6d: up early along CPS",0.999,TRUE
+"lit","IRF1","Gabitto Fig6d: up early along CPS",0.875,TRUE
+"lit","IRF7","Gabitto Fig6d: up early along CPS",0.835,TRUE
+"lit","IFI16","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","FCGR1A","Gabitto Fig6d: up early along CPS",0.996,TRUE
+"lit","FCGR1B","Gabitto Fig6d: up early along CPS",0.99,TRUE
+"lit","FCGR2A","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","FCGR3B","Gabitto Fig6d: up early along CPS",0.291,FALSE
+"lit","CD74","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","HLA-DRB5","Gabitto Fig6d: up early along CPS",0.965,TRUE
+"lit","C1QA","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","C1QB","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","CTSC","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","LY86","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","FCGR3A","Gabitto Fig6d: up early along CPS",1,TRUE
+"lit","CTSD","Gabitto Fig6d: up late along CPS",0.998,TRUE
+"lit","CTSS","Gabitto Fig6d: up late along CPS",1,TRUE
+"lit","LYZ","Gabitto Fig6d: up late along CPS",0.458,FALSE
+"lit","APOE","Gabitto Fig6d: up late along CPS",1,TRUE
+"lit","RUNX1","Gabitto Fig6e: microglial TFs up early",1,TRUE
+"lit","IKZF1","Gabitto Fig6e: microglial TFs up early",1,TRUE
+"lit","NFATC2","Gabitto Fig6e: microglial TFs up early",1,TRUE
+"lit","MAF","Gabitto Fig6e: microglial TFs up early",1,TRUE
+"lit","B2M","Adeoye Fig8A: MTG MIC-M2 (up in AD)",1,TRUE
+"lit","CST3","Adeoye Fig8A: MTG MIC-M2 (up in AD)",1,TRUE
+"lit","CD81","Adeoye Fig8A: MTG MIC-M2 (up in AD)",1,TRUE
+"lit","GPNMB","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",0.845,TRUE
+"lit","LRRK2","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",1,TRUE
+"lit","MITF","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",1,TRUE
+"lit","ABCA1","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",1,TRUE
+"lit","STARD13","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",1,TRUE
+"lit","ZBTB16","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",1,TRUE
+"lit","PRKAG2","Adeoye Fig8A: MTG MIC-M5 (lipid/immune)",1,TRUE
+"lit","PICALM","Adeoye Fig8A: MTG MIC-M4 (activation)",1,TRUE
+"lit","DOCK2","Adeoye Fig8A: MTG MIC-M4 (activation)",1,TRUE
+"lit","TAB2","Adeoye Fig8A: MTG MIC-M4 (activation)",1,TRUE
+"lit","NLGN1","Adeoye Fig8A: MTG MIC-M1 (down in AD)",1,TRUE
+"lit","RYR2","Adeoye Fig8A: MTG MIC-M1 (down in AD)",1,TRUE
+"lit","PLCB1","Adeoye Fig8A: MTG MIC-M1 (down in AD)",1,TRUE
+"lit","CHST11","Adeoye: hubs shared across regions",1,TRUE
+"lit","FKBP5","Adeoye: hubs shared across regions",1,TRUE
+"lit","GNAQ","Adeoye: hubs shared across regions",1,TRUE
+"lit","ITPR2","Adeoye: hubs shared across regions",1,TRUE
+"lit","LINGO1","Adeoye: hubs shared across regions",0.722,FALSE
+"lit","MEF2A","Adeoye: hubs shared across regions",1,TRUE
+"lit","MEF2C","Adeoye: hubs shared across regions",1,TRUE
+"lit","NAV3","Adeoye: hubs shared across regions",1,TRUE
+"lit","TBC1D5","Adeoye: hubs shared across regions",1,TRUE
+"lit","MAML3","Adeoye: hubs shared across regions",1,TRUE
+"lit","MTHFD1L","Adeoye: hubs shared across regions",1,TRUE
+"lit","TGFBR1","Adeoye: hubs shared across regions",1,TRUE
+"data","TPRG1","within-donor variability",0.952,TRUE
+"data","CERNA2","within-donor variability",0.801,TRUE
+"data","GPNMB","within-donor variability",0.845,TRUE
+"data","CD83","within-donor variability",0.889,TRUE
+"data","DIRC3","within-donor variability",0.982,TRUE
+"data","CCDC26","within-donor variability",0.972,TRUE
+"data","SUGCT","within-donor variability",0.939,TRUE
+"data","FLT1","within-donor variability",0.935,TRUE
+"data","CPA6","within-donor variability",0.936,TRUE
+"data","TENT5A","within-donor variability",0.927,TRUE
+"data","IQGAP2","within-donor variability",0.98,TRUE
+"data","HRH1","within-donor variability",0.857,TRUE
+"data","PTH2R","within-donor variability",0.892,TRUE
+"data","TMEM182","within-donor variability",0.923,TRUE
+"data","EPHB1","within-donor variability",0.869,TRUE
+"data","COL25A1","within-donor variability",0.868,TRUE
+"data","CGNL1","within-donor variability",0.879,TRUE
+"data","PLCXD3","within-donor variability",0.908,TRUE
+"data","CD163","within-donor variability",0.967,TRUE
+"data","CA8","within-donor variability",0.898,TRUE
+"data","CATSPERE","within-donor variability",0.883,TRUE
+"data","MCF2","within-donor variability",0.879,TRUE
+"data","C12orf42","within-donor variability",0.827,TRUE
+"data","PLAC8","within-donor variability",0.882,TRUE
+"data","DEC1","within-donor variability",0.905,TRUE
+"data","ADAMTS17","within-donor variability",0.967,TRUE
+"data","GPR183","within-donor variability",0.966,TRUE
+"data","MGAM","within-donor variability",0.868,TRUE
+"data","TSHR","within-donor variability",0.936,TRUE
+"data","FAM20A","within-donor variability",0.819,TRUE
+"data","GAS2L3","within-donor variability",0.82,TRUE
+"data","MS4A4E","within-donor variability",0.928,TRUE
+"data","ALDH1A2","within-donor variability",0.874,TRUE
+"data","PTPRG","within-donor variability",1,TRUE
+"data","DOCK1","within-donor variability",0.9,TRUE
+"data","FLVCR2","within-donor variability",0.949,TRUE
+"data","NEXMIF","within-donor variability",0.973,TRUE
+"data","IFI44L","within-donor variability",0.974,TRUE
+"data","CD163L1","within-donor variability",0.951,TRUE
+"data","RFC3","within-donor variability",0.967,TRUE
+"data","PLS1","within-donor variability",0.882,TRUE
+"data","MT2A","within-donor variability",0.882,TRUE
+"data","MFHAS1","within-donor variability",0.975,TRUE
+"data","MCC","within-donor variability",0.869,TRUE
+"data","CLIC4","within-donor variability",0.921,TRUE
+"data","SLC7A1","within-donor variability",0.902,TRUE
+"data","ST18","within-donor variability",0.884,TRUE
+"data","PLEKHG1","within-donor variability",0.834,TRUE
+"data","LDLRAD3","within-donor variability",0.802,TRUE
+"data","SCGB2B2","within-donor variability",0.846,TRUE
+"data","ZNF804A","within-donor variability",0.999,TRUE
+"data","NEDD4","within-donor variability",0.894,TRUE
+"data","HAMP","within-donor variability",0.962,TRUE
+"data","IL15","within-donor variability",0.963,TRUE
+"data","GRID2","within-donor variability",1,TRUE
+"data","PDK4","within-donor variability",0.978,TRUE
+"data","BTBD11","within-donor variability",0.815,TRUE
+"data","FRMD3","within-donor variability",0.982,TRUE
+"data","CLEC5A","within-donor variability",0.918,TRUE
+"data","TMEM163","within-donor variability",0.993,TRUE

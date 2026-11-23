@@ -1,13 +1,55 @@
-Data: 983 metacells x 50 variables
+
+> df   <- read.csv(INPUT, check.names = FALSE)
+
+> vars <- colnames(df); n <- nrow(df); p <- ncol(df)
+
+> rho  <- cor(df, method = "spearman")
+
+> cat("Input:", INPUT, "\nData:", n, "rows x", p, "variables\n")
+Input: data/processed/network_dataset.csv 
+Data: 983 rows x 50 variables
+
+> key  <- function(a, b) ifelse(a < b, paste(a, b, sep = " -- "), paste(b, a, sep = " -- "))
+
+> timed <- function(expr) { t0 <- Sys.time(); r <- expr; cat("  time:", round(difftime(Sys.time(), t0, units = "mins"), 2), "min\n"); r }
+
+> # ======================================================================= ARACNE
+> # 1) mutual information (MI) for all pairs, estimated from rank c .... [TRUNCATED] 
 
 ######## ARACNE ########
+
+> edges_aracne <- timed({
++   mim <- build.mim(df, estimator = "spearman")
++   null_mi <- unlist(lapply(1:20, function(i) {
++     m <- build.mim(as.da .... [TRUNCATED] 
   MI threshold: 0.00565 (corresponds to |rho| ~ 0.106 )
-  time: 0.01 min
+  time: 0.04 min
+
+> cat("  edges:", nrow(edges_aracne), "\n")
   edges: 71 
 
+> # ======================================================================= PC
+> # Starts from the complete graph; removes edge X–Y if X and Y are ind .... [TRUNCATED] 
+
 ######## PC ########
-  time: 0.14 min
-  edges: 28 | of which oriented: 25 
+
+> edges_pc <- timed({
++   C <- 2 * sin(pi / 6 * rho)
++   pc_fit <- pc(suffStat = list(C = C, n = n), indepTest = gaussCItest, alpha = ALPHA_PC,
++      .... [TRUNCATED] 
+  adjacency values: 0:2317  1:31  2:152 
+  time: 0.9 min
+
+> cat("  edges:", nrow(edges_pc), "| oriented:", sum(edges_pc$type == "->"), "| conflict (<->):", sum(edges_pc$type == "<->"), "\n")
+  edges: 104 | oriented: 25 | conflict (<->): 76 
+
+> # ======================================================================= MIIC
+> # Like PC, but uses mutual information with a complexity penalty in .... [TRUNCATED] 
+
+> if (RUN_MIIC) {
++   cat("\n######## MIIC ########\n")
++   edges_miic <- timed({
++     res <- miic(input_data = df, n_threads = max(1, parallel::dete .... [TRUNCATED] 
 
 ######## MIIC ########
 Search all pairs for unconditional independence relations...
@@ -15,60 +57,183 @@ Search for candidate separating nodes...
 Search for conditional independence relations...
 Search for edge directions...
 Number of edges: 111
-  time: 1.17 min
+  time: 5.12 min
   edges: 111 | oriented: 30 | with a possible latent cause (<->): 9 
+
+> nets <- list(ARACNE = edges_aracne, PC = edges_pc, MIIC = edges_miic)
+
+> nets <- nets[!sapply(nets, is.null)]
+
+> for (m in names(nets)) {
++   nets[[m]]$rho <- round(rho[cbind(nets[[m]]$from, nets[[m]]$to)], 3)
++   write.csv(nets[[m]], paste0(OUT_DIR, "/edges_", .... [TRUNCATED] 
+
+> # ======================================================================= COMPARISON
+> cat("\n######## METHOD COMPARISON ########\n")
 
 ######## METHOD COMPARISON ########
 
+> keys <- lapply(nets, function(e) key(e$from, e$to))
+
+> all_keys <- sort(unique(unlist(keys)))
+
+> comp <- data.frame(edge = all_keys, sapply(keys, function(k) all_keys %in% k), check.names = FALSE)
+
+> ab <- do.call(rbind, strsplit(all_keys, " -- "))
+
+> comp$rho <- round(rho[ab], 3)
+
+> comp$n_methods <- rowSums(comp[, names(nets), drop = FALSE])
+
+> write.csv(comp, file.path(OUT_DIR, "edges_comparison.csv"), row.names = FALSE)
+
+> cat("\nNumber of edges:\n"); print(sapply(keys, length))
+
 Number of edges:
 ARACNE     PC   MIIC 
-    71     28    111 
+    71    104    111 
+
+> cat("\nEdge overlap between methods (Jaccard index = shared / union):\n")
 
 Edge overlap between methods (Jaccard index = shared / union):
-       ARACNE   PC MIIC
-ARACNE   1.00 0.27 0.48
-PC       0.27 1.00 0.22
-MIIC     0.48 0.22 1.00
 
-Edges found by all methods: 21 
-                 edge   rho
-         ABI3 -- SPI1 0.532
-         APOE -- C1QA 0.618
-       APOE -- TYROBP 0.595
-       BIN1 -- TGFBR1 0.667
-         C1QA -- C1QB 0.809
-         CD163 -- FGR 0.652
-       CD163 -- TGFBI 0.588
-      CD74 -- HLA-DRA 0.825
-      CSF1R -- PICALM 0.710
-     CX3CR1 -- P2RY12 0.753
-      DIRC3 -- IQGAP2 0.599
-    GAS2L3 -- ZNF804A 0.397
-      GPNMB -- IQGAP2 0.590
-      GPR34 -- OLFML3 0.399
-  MEF2C -- total_UMIs 0.784
-      MS4A6A -- PLCG2 0.694
-      P2RY12 -- SALL1 0.658
- PICALM -- total_UMIs 0.764
-  PLCG2 -- total_UMIs 0.735
-      PLXNC1 -- TGFBI 0.577
-     TPRG1 -- ZNF804A 0.533
+> J <- outer(names(keys), names(keys), Vectorize(function(a, b)
++   round(length(intersect(keys[[a]], keys[[b]])) / length(union(keys[[a]], keys[[b]]) .... [TRUNCATED] 
+
+> dimnames(J) <- list(names(keys), names(keys)); print(J)
+       ARACNE   PC MIIC
+ARACNE   1.00 0.48 0.48
+PC       0.48 1.00 0.49
+MIIC     0.48 0.49 1.00
+
+> cat("\nEdges found by all methods:", sum(comp$n_methods == length(nets)), "\n")
+
+Edges found by all methods: 49 
+
+> print(comp[comp$n_methods == length(nets), c("edge", "rho")], row.names = FALSE)
+                 edge    rho
+       ABI3 -- SLC2A5  0.532
+         ABI3 -- SPI1  0.532
+         APOE -- C1QA  0.618
+         APOE -- CST3  0.638
+        APOE -- TGFBI  0.400
+        APOE -- TREM2  0.484
+       APOE -- TYROBP  0.595
+         BIN1 -- IRF8  0.530
+       BIN1 -- TGFBR1  0.667
+         C1QA -- C1QB  0.809
+      CD163 -- CX3CR1 -0.553
+      CD163 -- FAM20A  0.647
+         CD163 -- FGR  0.652
+      CD163 -- MS4A6A  0.518
+       CD163 -- TGFBI  0.588
+      CD74 -- HLA-DRA  0.825
+        CD74 -- MEF2C  0.612
+        CD74 -- TREM2  0.494
+        CD83 -- GPNMB  0.229
+       CDK14 -- PTPRG  0.423
+   CPS_Local -- PTPRG  0.435
+      CSF1R -- P2RY12  0.646
+      CSF1R -- PICALM  0.710
+     CSF1R -- TMEM119  0.522
+        CST3 -- GPR34  0.496
+      CST3 -- TMEM119  0.471
+     CX3CR1 -- P2RY12  0.753
+     CX3CR1 -- P2RY13  0.625
+      DIRC3 -- IQGAP2  0.599
+     FAM20A -- SELPLG -0.446
+    GAS2L3 -- ZNF804A  0.397
+        GPNMB -- HEXB  0.350
+      GPNMB -- IQGAP2  0.590
+      GPR34 -- OLFML3  0.399
+      GPR34 -- P2RY12  0.658
+      GPR34 -- P2RY13  0.621
+   HEXB -- total_UMIs  0.546
+      INPP5D -- SORL1  0.748
+  MEF2C -- total_UMIs  0.784
+      MS4A6A -- PLCG2  0.694
+      P2RY12 -- SALL1  0.658
+       P2RY12 -- SPP1 -0.452
+ PICALM -- total_UMIs  0.764
+  PLCG2 -- total_UMIs  0.735
+      PLXNC1 -- TGFBI  0.577
+     PTPRG -- ZNF804A  0.456
+       SLC2A5 -- SPP1  0.490
+   SPI1 -- total_UMIs  0.722
+     TPRG1 -- ZNF804A  0.533
+
+> neigh <- function(e, v) sort(unique(c(e$to[e$from == v], e$from[e$to == v])))
+
+> for (v in c("CPS_Local", "total_UMIs")) {
++   cat("\nNeighbours of", v, ":\n")
++   for (m in names(nets)) {
++     nb <- neigh(nets[[m]], v)
++     ca .... [TRUNCATED] 
 
 Neighbours of CPS_Local :
   ARACNE  ( 1): PTPRG (0.44)
-  PC      ( 0):  ()
+  PC      ( 4): APOE (0.24), CD83 (-0.14), PTPRG (0.44), SELPLG (0.24)
   MIIC    (19): APOE (0.24), BIN1 (-0.2), C1QB (0.11), CD163 (0.05), CD74 (0.2), CD83 (-0.14), CSF1R (0.08), CX3CR1 (-0.04), FAM20A (-0.08), GPR34 (0.13), MS4A6A (0.04), P2RY12 (0.01), PICALM (0.07), PLCG2 (0), PTPRG (0.44), SLC2A5 (-0.14), SORL1 (0), SPP1 (0), total_UMIs (0.07)
 
 Neighbours of total_UMIs :
   ARACNE  ( 8): CD33 (0.37), HEXB (0.55), MEF2C (0.78), PICALM (0.76), PLCG2 (0.74), SPI1 (0.72), TGFBR1 (0.63), ZNF804A (0.47)
-  PC      ( 3): MEF2C (0.78), PICALM (0.76), PLCG2 (0.74)
+  PC      ( 8): HEXB (0.55), INPP5D (0.76), MEF2C (0.78), MS4A6A (0.67), PICALM (0.76), PLCG2 (0.74), SPI1 (0.72), TGFBR1 (0.63)
   MIIC    (12): ABI3 (0.5), CD33 (0.37), CPS_Local (0.07), HEXB (0.55), INPP5D (0.76), MEF2C (0.78), MS4A6A (0.67), PICALM (0.76), PLCG2 (0.74), SLC2A5 (0.5), SPI1 (0.72), ZNF804A (0.47)
 
+> cat("\nHubs — 10 nodes with the most connections (excluding total_UMIs):\n")
+
 Hubs — 10 nodes with the most connections (excluding total_UMIs):
+
+> for (m in names(nets)) {
++   d <- table(c(nets[[m]]$from, nets[[m]]$to)); d <- d[names(d) != "total_UMIs"]
++   d <- sort(d, decreasing = TRUE)[1:min .... [TRUNCATED] 
   ARACNE  CD163=9, APOE=7, P2RY12=7, CD74=6, GPNMB=5, ZNF804A=5, CSF1R=4, CST3=4, GPR34=4, PTPRG=4
-  PC      C1QA=3, CD163=3, ZNF804A=3, APOE=2, CDK14=2, CSF1R=2, GAS2L3=2, GPNMB=2, IQGAP2=2, OLFML3=2
+  PC      APOE=8, CSF1R=7, GPNMB=7, TPRG1=7, CD163=6, CDK14=6, CST3=6, GPR34=6, PLXNC1=6, SELPLG=6
   MIIC    CPS_Local=19, CSF1R=11, CD163=10, CD74=8, TPRG1=8, P2RY12=7, APOE=6, GPNMB=6, SELPLG=6, SPP1=6
+
+> if (all(c("PC", "MIIC") %in% names(nets))) {
++   dir_pc <- nets$PC[nets$PC$type == "->", ]; dir_mi <- nets$MIIC[nets$MIIC$type == "->", ]
++   both < .... [TRUNCATED] 
 
 Orientation: edges oriented in both PC and MIIC: 4 | of which in the same direction: 3 
 
+> # ======================================================================= PLOTS
+> grp <- setNames(rep("other", p), vars)
+
+> grp[c("P2RY12","CX3CR1","TMEM119","CSF1R","P2RY13","SALL1","GPR34","OLFML3","HEXB","SELPLG","TGFBR1","SLC2A5","CST3")] <- "homeostatic"
+
+> grp[c("TREM2","TYROBP","APOE","SPP1","GPNMB","CD74","HLA-DRA","C1QA","C1QB","CD163")] <- "disease response"
+
+> grp[c("PLCG2","INPP5D","MS4A6A","PICALM","SORL1","BIN1","CD33","ABI3")] <- "AD risk"
+
+> grp[c("SPI1","IRF8","MEF2C")] <- "TF"
+
+> grp["CPS_Local"] <- "CPS"; grp["total_UMIs"] <- "technical"
+
+> pal <- c(homeostatic = "#4C9BE8", "disease response" = "#E8833A", "AD risk" = "#5DBB63",
++          TF = "#9B6BD0", other = "#F2C14E", CPS = "#D6454 ..." ... [TRUNCATED] 
+
+> g_all <- graph_from_data_frame(ab, vertices = data.frame(name = vars), directed = FALSE)
+
+> lay <- layout_with_fr(g_all)
+
+> plot_net <- function(e, title, file) {
++   g <- graph_from_data_frame(e[, c("from", "to")], vertices = data.frame(name = vars), directed = TRUE)
++   .... [TRUNCATED] 
+
+> for (m in names(nets)) plot_net(nets[[m]], paste(m, "—", nrow(nets[[m]]), "edges"),
++                                 paste0(OUT_DIR, "/net_", tolow .... [TRUNCATED] 
+
+> cons <- comp[comp$n_methods == length(nets), ]
+
+> if (nrow(cons) > 0) {
++   ce <- data.frame(do.call(rbind, strsplit(cons$edge, " -- ")), type = "--", rho = cons$rho)
++   colnames(ce)[1:2] <- c("fro ..." ... [TRUNCATED] 
+null device 
+          1 
+
+> cat("\nPlots:", file.path(OUT_DIR, "*.png"), "(grey edges = positive association, red = negative)\n")
+
 Plots: results/networks/*.png (grey edges = positive association, red = negative)
+
+> sink()
